@@ -1,0 +1,9 @@
+C:\Godot_v3.5.1-stable_mono_win64\Proyectos\.mono\temp\obj\Debug\Touhou - The Bardicol experience.csproj.AssemblyReference.cache
+C:\Godot_v3.5.1-stable_mono_win64\Proyectos\.mono\temp\obj\Debug\Touhou - The Bardicol experience.GeneratedMSBuildEditorConfig.editorconfig
+C:\Godot_v3.5.1-stable_mono_win64\Proyectos\.mono\temp\obj\Debug\Touhou - The Bardicol experience.AssemblyInfoInputs.cache
+C:\Godot_v3.5.1-stable_mono_win64\Proyectos\.mono\temp\obj\Debug\Touhou - The Bardicol experience.AssemblyInfo.cs
+C:\Godot_v3.5.1-stable_mono_win64\Proyectos\.mono\temp\obj\Debug\Touhou - The Bardicol experience.csproj.CoreCompileInputs.cache
+C:\Godot_v3.5.1-stable_mono_win64\Proyectos\.mono\temp\bin\Debug\Touhou - The Bardicol experience.dll
+C:\Godot_v3.5.1-stable_mono_win64\Proyectos\.mono\temp\bin\Debug\Touhou - The Bardicol experience.pdb
+C:\Godot_v3.5.1-stable_mono_win64\Proyectos\.mono\temp\obj\Debug\Touhou - The Bardicol experience.dll
+C:\Godot_v3.5.1-stable_mono_win64\Proyectos\.mono\temp\obj\Debug\Touhou - The Bardicol experience.pdb

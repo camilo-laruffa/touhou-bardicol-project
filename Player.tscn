@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://marisa.jpg" type="Texture" id=1]
+[ext_resource path="res://Assets/Code/Marisa.cs" type="Script" id=2]
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 160, 160 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 275, 142 )
+scale = Vector2( 7.9375, 6.375 )
+texture = ExtResource( 1 )
