@@ -1,4 +1,9 @@
-using Godot;
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://marisa.jpg" type="Texture" id=1]
+
+[sub_resource type="CSharpScript" id=1]
+script/source = "using Godot;
 using System;
 
 public class Marisa : Node2D
@@ -7,33 +12,34 @@ public class Marisa : Node2D
 	// private int a = 2;
 	private float speed = 5f;
 	private Vector2 _velocity = new Vector2();
+	
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		GD.Print("hola");
+		GD.Print(\"hola\");
 	}
 	 public override void _PhysicsProcess(float delta){	  
 		manage_input();
 	}
 	
 	private void manage_input(){
-		if(Input.IsActionPressed("left")){
+		if(Input.IsActionPressed(\"left\")){
 			GlobalPosition += new Vector2 (-speed,0);
 		}
-		if(Input.IsActionPressed("right")){
+		if(Input.IsActionPressed(\"right\")){
 			GlobalPosition += new Vector2 (speed,0);
 		}
-		if(Input.IsActionPressed("up")){
+		if(Input.IsActionPressed(\"up\")){
 			GlobalPosition += new Vector2 (0,-speed);
 		}
-		if(Input.IsActionPressed("down")){
+		if(Input.IsActionPressed(\"down\")){
 			GlobalPosition += new Vector2 (0,speed);
 		}
-		if(Input.IsActionPressed("shoot")){
+		if(Input.IsActionPressed(\"shoot\")){
 			shoot();
 		}
-		if(Input.IsActionPressed("shift")){
+		if(Input.IsActionPressed(\"shift\")){
 			speed = 3f;
 		}else{
 			speed = 5f;
@@ -45,3 +51,13 @@ public class Marisa : Node2D
 		
 	}
 }
+"
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 160, 160 )
+script = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 1 )
+scale = Vector2( 3.78125, 2.6875 )
+texture = ExtResource( 1 )

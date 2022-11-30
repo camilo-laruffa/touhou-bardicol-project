@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "n4SaG+652p2CuPvnUdvr88f3qCUf+ldzdeVzCCblogzcEHl6DnH2PeWPoVhXJei2z2RPPjXmmoRhBVri1QkqZg==",
+  "dgSpecHash": "ieXHb7BuXRMqV5ubXtp2QIEwaqZENsKSl+Ym3/DRc2jcH8787lxyGjD5Rl/Kgql6civlbh9W1O8PV7oqrdn9bQ==",
   "success": true,
-  "projectFilePath": "C:\\Godot_v3.5.1-stable_mono_win64\\Proyectos\\Touhou - The Bardicol experience.csproj",
+  "projectFilePath": "C:\\Godot_v3.5.1-stable_mono_win64\\Touhou\\Touhou - The Bardicol experience.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Camilo\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.2\\microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
     "C:\\Users\\Camilo\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net472\\1.0.2\\microsoft.netframework.referenceassemblies.net472.1.0.2.nupkg.sha512"

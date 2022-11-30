@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Godot_v3.5.1-stable_mono_win64\\Proyectos\\Touhou - The Bardicol experience.csproj": {}
+    "C:\\Godot_v3.5.1-stable_mono_win64\\Touhou\\Touhou - The Bardicol experience.csproj": {}
   },
   "projects": {
-    "C:\\Godot_v3.5.1-stable_mono_win64\\Proyectos\\Touhou - The Bardicol experience.csproj": {
+    "C:\\Godot_v3.5.1-stable_mono_win64\\Touhou\\Touhou - The Bardicol experience.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Godot_v3.5.1-stable_mono_win64\\Proyectos\\Touhou - The Bardicol experience.csproj",
+        "projectUniqueName": "C:\\Godot_v3.5.1-stable_mono_win64\\Touhou\\Touhou - The Bardicol experience.csproj",
         "projectName": "Touhou - The Bardicol experience",
-        "projectPath": "C:\\Godot_v3.5.1-stable_mono_win64\\Proyectos\\Touhou - The Bardicol experience.csproj",
+        "projectPath": "C:\\Godot_v3.5.1-stable_mono_win64\\Touhou\\Touhou - The Bardicol experience.csproj",
         "packagesPath": "C:\\Users\\Camilo\\.nuget\\packages\\",
-        "outputPath": "C:\\Godot_v3.5.1-stable_mono_win64\\Proyectos\\.mono\\temp\\obj\\",
+        "outputPath": "C:\\Godot_v3.5.1-stable_mono_win64\\Touhou\\.mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Camilo\\AppData\\Roaming\\NuGet\\NuGet.Config"
