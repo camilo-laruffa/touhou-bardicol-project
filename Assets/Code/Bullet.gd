@@ -6,6 +6,7 @@ const SPEED = 16
 
 
 func _ready():
+	set_physics_process(true)
 	add_child(timer)
 	timer.set_wait_time(3)
 	timer.start()
@@ -13,8 +14,13 @@ func _ready():
 	timer.connect("timeout", self, "_destruir")
 
 #BALA SUBE VELOCIDAD RAPIDO SII
-func _process(delta):
+func _physics_process(delta):
 	position.y -= SPEED
 	
 func _destruir():
 	queue_free()
+
+
+
+func _on_Hitbox_area_entered(area):	
+	_destruir()

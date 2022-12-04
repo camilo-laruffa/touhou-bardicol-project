@@ -2,31 +2,32 @@ extends Node
 
 onready var BULLET = preload("res://Assets/Scenes/Bullet.tscn")
 onready var sprite = get_node("Sprite")
-const SPEED = 6
+onready var hitbox = get_node("Sprite/Hitbox")
 var speed
+const CD = 0.1
 var can_Shoot = true
+var visible = false
 var timer = Timer.new() #Este timer es el del disparo
 
 func _ready():
+	set_physics_process(true)
 	add_child(timer)
 	timer.set_one_shot(true)
-	timer.set_wait_time(0.1)
+	timer.set_wait_time(CD) #Cada CD seg puede disparar
 	timer.connect("timeout", self, "_can_Shoot")
 	
-func _process(delta):
+func _physics_process(delta):
 	_manage_input()
 
 #Controla el input
 func _manage_input():
-	speed = SPEED
-	get_node("Sprite").get_child(0).set_visible(false)	
-	if Input.is_action_pressed("shift"):
-		speed = SPEED * 0.5
-		get_node("Sprite").get_child(0).set_visible(true)	
+	speed = 3 if (Input.is_action_pressed("shift")) else 6 #Esto no es lo más optimo pero queria probarlo jasja
+	visible = true if (Input.is_action_pressed("shift")) else false
+	hitbox.set_visible(visible)	
+	
 	if Input.is_action_pressed("shoot" ) && can_Shoot: 
 		_shoot()
-		timer.start()
-	
+		timer.start()	
 	
 	#Movimiento	
 	if Input.is_action_pressed("left"): sprite.global_position.x -= speed
@@ -42,4 +43,4 @@ func _shoot():
 	can_Shoot = false
 
 func _can_Shoot():
-	can_Shoot = true #Puedes disparar cuando termina el timer
+	can_Shoot = true #Podes disparar cuando termina el timer

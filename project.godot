@@ -14,6 +14,15 @@ config/name="Touhou - The Bardicol experience"
 run/main_scene="res://Assets/Scenes/Node2D.tscn"
 config/icon="res://icon.png"
 
+[debug]
+
+settings/fps/force_fps=60
+settings/stdout/print_fps=true
+
+[display]
+
+window/size/resizable=false
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
@@ -50,6 +59,14 @@ shoot={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":90,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="Enviroment"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Enemy"
+2d_physics/layer_4="Bullet"
+2d_physics/layer_5="Bonus"
 
 [mono]
 

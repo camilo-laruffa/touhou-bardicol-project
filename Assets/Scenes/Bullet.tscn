@@ -1,16 +1,21 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Sprites/marisa_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Code/Bullet.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Sounds/ATTACK4.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Code/Hitbox.gd" type="Script" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 32.0624
 
 [node name="Bullet" type="KinematicBody2D"]
 position = Vector2( 174, 147 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.670588, 0.964706, 0.513726, 1 )
 self_modulate = Color( 1, 1, 1, 0.411765 )
-position = Vector2( -4, 3 )
+position = Vector2( 1, -1 )
 scale = Vector2( 4.79248, 4.76317 )
 texture = ExtResource( 1 )
 hframes = 3
@@ -19,10 +24,19 @@ frame = 2
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 
-[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = -16.442
-pitch_scale = 1.11
+volume_db = -29.714
+pitch_scale = 1.37
 autoplay = true
-max_distance = 10000.0
-area_mask = 3
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( 4, -3 )
+shape = SubResource( 1 )
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
