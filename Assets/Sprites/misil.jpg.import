@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/misil.jpg-54035c43a81682b59849a811d0f70623.stex"
+path="res://.import/misil.jpg-a978e914d2463d83c66a32ef72510fe2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://misil.jpg"
-dest_files=[ "res://.import/misil.jpg-54035c43a81682b59849a811d0f70623.stex" ]
+source_file="res://Assets/Sprites/misil.jpg"
+dest_files=[ "res://.import/misil.jpg-a978e914d2463d83c66a32ef72510fe2.stex" ]
 
 [params]
 

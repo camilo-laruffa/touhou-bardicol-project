@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/marisa.jpg-8f5a2701c8ed1d9ccaff1c895b9ee41f.stex"
+path="res://.import/marisa_spritesheet.png-89ec33bc9355d9874dc9eb2a1a84700d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://marisa.jpg"
-dest_files=[ "res://.import/marisa.jpg-8f5a2701c8ed1d9ccaff1c895b9ee41f.stex" ]
+source_file="res://Assets/Sprites/marisa_spritesheet.png"
+dest_files=[ "res://.import/marisa_spritesheet.png-89ec33bc9355d9874dc9eb2a1a84700d.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

@@ -1,15 +1,19 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/Scenes/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/Scenes/Bullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Sprites/background.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Code/Marisa.gd" type="Script" id=3]
 
 [node name="Main" type="Node2D"]
 position = Vector2( 21, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 523, 545 )
+position = Vector2( 159, 537 )
+scale = Vector2( 3.40286, 3.40286 )
 script = ExtResource( 3 )
 
-[node name="Bullet" parent="." instance=ExtResource( 2 )]
-position = Vector2( 595, 567 )
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 492, 297 )
+scale = Vector2( 8.96, 8.96 )
+z_index = -1
+texture = ExtResource( 2 )
