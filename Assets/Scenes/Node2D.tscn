@@ -12,12 +12,11 @@ position = Vector2( 21, 0 )
 script = ExtResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 309, 545 )
-scale = Vector2( 2.84286, 2.84286 )
+position = Vector2( 316, 523 )
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 492, 297 )
+position = Vector2( 492, 301 )
 scale = Vector2( 8.96, 8.96 )
 z_index = -1
 texture = ExtResource( 2 )
@@ -28,8 +27,7 @@ volume_db = -11.361
 autoplay = true
 
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
-position = Vector2( 315, 108 )
-scale = Vector2( 0.76, 0.76 )
+position = Vector2( 334, 134 )
 
 [node name="Texto" type="RichTextLabel" parent="."]
 margin_left = 493.0
@@ -38,3 +36,17 @@ margin_right = 533.0
 margin_bottom = 75.0
 rect_scale = Vector2( 3.56, 3.56 )
 text = "100"
+
+[node name="Enemy3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 211, 282 )
+HP = 10.0
+LIFES = 1.0
+
+[node name="Enemy2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 482, 284 )
+HP = 10.0
+LIFES = 1.0
+
+[editable path="Enemy"]
+[editable path="Enemy3"]
+[editable path="Enemy2"]

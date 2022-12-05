@@ -8,12 +8,13 @@ position = Vector2( 145, 106 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -1, -1 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 1 )
-hframes = 3
-vframes = 2
+hframes = 6
+vframes = 3
 frame = 1
 
 [node name="Hitbox" type="Sprite" parent="Sprite"]
-visible = false
-position = Vector2( 1, 1 )
+position = Vector2( 0, 1 )
+scale = Vector2( 0.759995, 0.759995 )
 texture = ExtResource( 2 )

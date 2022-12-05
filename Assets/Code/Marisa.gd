@@ -28,12 +28,12 @@ func _manage_input():
 	if Input.is_action_pressed("shoot" ) && can_Shoot: 
 		_shoot()
 		timer.start()	
-	
+	print(sprite.global_position.y)
 	#Movimiento	
-	if Input.is_action_pressed("left"): sprite.global_position.x -= speed
-	if Input.is_action_pressed("right"): sprite.global_position.x += speed
-	if Input.is_action_pressed("up"): sprite.global_position.y -= speed
-	if Input.is_action_pressed("down"): sprite.global_position.y += speed
+	if Input.is_action_pressed("left") && sprite.global_position.x > 80: sprite.global_position.x -= speed
+	if Input.is_action_pressed("right") && sprite.global_position.x < 620: sprite.global_position.x += speed
+	if Input.is_action_pressed("up") && sprite.global_position.y > 50: sprite.global_position.y -= speed
+	if Input.is_action_pressed("down") && sprite.global_position.y < 550: sprite.global_position.y += speed
 	
 #Crea una instancia de bala, la mete a la escena y despues le setea la posicion inicial arriba del jugador
 func _shoot():

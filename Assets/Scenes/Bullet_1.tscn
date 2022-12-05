@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Sprites/marisa_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Code/Bullet.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Sounds/ATTACK4.wav" type="AudioStream" id=3]
 [ext_resource path="res://Assets/Code/Hitbox.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Code/Bullet_1.gd" type="Script" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 32.0624
@@ -13,14 +14,13 @@ position = Vector2( 175, 146 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 0.670588, 0.964706, 0.513726, 1 )
-self_modulate = Color( 1, 1, 1, 0.411765 )
 position = Vector2( 2, -3 )
 scale = Vector2( 3.31248, 3.29222 )
 texture = ExtResource( 1 )
 hframes = 6
 vframes = 3
-frame = 3
+frame = 10
+script = ExtResource( 5 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 
@@ -31,6 +31,7 @@ pitch_scale = 1.37
 autoplay = true
 
 [node name="Hitbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 8
 collision_mask = 4
 script = ExtResource( 4 )

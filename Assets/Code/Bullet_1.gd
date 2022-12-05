@@ -1,8 +1,8 @@
-extends KinematicBody2D
+extends Sprite
 
 #Usamos un timer para que cuando pasan los segundos se destruya la bala 
 var timer = Timer.new()
-const SPEED = 16
+const SPEED = 0.5
 
 
 func _ready():
@@ -19,6 +19,7 @@ func _physics_process(delta):
 	
 func _destruir():
 	queue_free()
+
 
 
 func _on_Hitbox_area_entered(area):	
