@@ -1,21 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/Sprites/marisa_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Code/Enemy.gd" type="Script" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 30.25, 39.5 )
-
 [sub_resource type="CircleShape2D" id=2]
 radius = 45.583
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="KinematicBody2D" type="Node2D"]
 position = Vector2( 466, 243 )
 script = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1.5, -3 )
-shape = SubResource( 1 )
+FRAME = 14
 
 [node name="HurtBox" type="Area2D" parent="."]
 collision_layer = 4
@@ -30,6 +24,6 @@ scale = Vector2( 3, 3 )
 texture = ExtResource( 1 )
 hframes = 6
 vframes = 3
-frame = 2
+frame = 15
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]

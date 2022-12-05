@@ -12,8 +12,9 @@ position = Vector2( 21, 0 )
 script = ExtResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 316, 523 )
+position = Vector2( 324, 528 )
 script = ExtResource( 3 )
+SPEED = 300.0
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 492, 301 )
@@ -27,7 +28,7 @@ volume_db = -11.361
 autoplay = true
 
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
-position = Vector2( 334, 134 )
+position = Vector2( 322, 147 )
 
 [node name="Texto" type="RichTextLabel" parent="."]
 margin_left = 493.0
@@ -40,12 +41,10 @@ text = "100"
 [node name="Enemy3" parent="." instance=ExtResource( 5 )]
 position = Vector2( 211, 282 )
 HP = 10.0
-LIFES = 1.0
 
 [node name="Enemy2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 482, 284 )
 HP = 10.0
-LIFES = 1.0
 
 [editable path="Enemy"]
 [editable path="Enemy3"]

@@ -3,6 +3,7 @@ extends Node
 onready var BULLET = preload("res://Assets/Scenes/Bullet.tscn")
 onready var sprite = get_node("Sprite")
 onready var hitbox = get_node("Sprite/Hitbox")
+export(float) var SPEED: float = 30
 var speed
 const CD = 0.1
 var can_Shoot = true
@@ -17,20 +18,19 @@ func _ready():
 	timer.connect("timeout", self, "_can_Shoot")
 	
 func _physics_process(delta):
-	_manage_input()
+	_manage_input(delta)
 
 #Controla el input
-func _manage_input():
-	speed = 3 if (Input.is_action_pressed("shift")) else 6 #Esto no es lo más optimo pero queria probarlo jasja
+func _manage_input(delta):
+	speed = delta * SPEED/3.5 if (Input.is_action_pressed("shift")) else SPEED*delta #Esto no es lo más optimo pero queria probarlo jasja
 	visible = true if (Input.is_action_pressed("shift")) else false
 	hitbox.set_visible(visible)	
 	
 	if Input.is_action_pressed("shoot" ) && can_Shoot: 
 		_shoot()
 		timer.start()	
-	print(sprite.global_position.y)
 	#Movimiento	
-	if Input.is_action_pressed("left") && sprite.global_position.x > 80: sprite.global_position.x -= speed
+	if Input.is_action_pressed("left") && sprite.global_position.x > 80: sprite.global_position.x -= speed 
 	if Input.is_action_pressed("right") && sprite.global_position.x < 620: sprite.global_position.x += speed
 	if Input.is_action_pressed("up") && sprite.global_position.y > 50: sprite.global_position.y -= speed
 	if Input.is_action_pressed("down") && sprite.global_position.y < 550: sprite.global_position.y += speed
