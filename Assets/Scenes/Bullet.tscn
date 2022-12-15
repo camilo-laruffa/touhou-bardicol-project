@@ -26,7 +26,7 @@ frame = 3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = -29.714
+volume_db = -47.194
 pitch_scale = 1.37
 autoplay = true
 

@@ -1,31 +1,33 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Sprites/background.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Code/Marisa.gd" type="Script" id=3]
-[ext_resource path="res://Assets/Sounds/musica.mp3" type="AudioStream" id=4]
 [ext_resource path="res://Assets/Scenes/Enemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Code/Main.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Sprites/up_background.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Scenes/Spawn nubes.tscn" type="PackedScene" id=8]
 
 [node name="Main" type="Node2D"]
 position = Vector2( 21, 0 )
 script = ExtResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 324, 528 )
+position = Vector2( 338, 537 )
 script = ExtResource( 3 )
 SPEED = 300.0
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 492, 301 )
-scale = Vector2( 8.96, 8.96 )
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 494, 306 )
+scale = Vector2( 9, 9 )
 z_index = -1
 texture = ExtResource( 2 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
-volume_db = -11.361
-autoplay = true
+[node name="Background2" type="Sprite" parent="."]
+position = Vector2( 494, 310 )
+scale = Vector2( 9, 9 )
+z_index = 2
+texture = ExtResource( 7 )
 
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
 position = Vector2( 322, 147 )
@@ -45,6 +47,21 @@ HP = 10.0
 [node name="Enemy2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 482, 284 )
 HP = 10.0
+
+[node name="Spawn nubes" parent="." instance=ExtResource( 8 )]
+position = Vector2( 91, -24 )
+
+[node name="Spawn nubes2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 199, -75 )
+
+[node name="Spawn nubes5" parent="." instance=ExtResource( 8 )]
+position = Vector2( 580, -23 )
+
+[node name="Spawn nubes3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 355, -24 )
+
+[node name="Spawn nubes4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 506, -84 )
 
 [editable path="Enemy"]
 [editable path="Enemy3"]

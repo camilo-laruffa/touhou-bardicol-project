@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Sprites/nubes.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Code/Nube.gd" type="Script" id=2]
+
+[node name="Nube" type="Node2D"]
+modulate = Color( 1, 1, 1, 0.623529 )
+scale = Vector2( 6, 6 )
+script = ExtResource( 2 )
+speed = 339.134
+frequency = 2.227
+amplitude = 1.261
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 2
+vframes = 2
