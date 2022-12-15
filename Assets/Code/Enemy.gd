@@ -13,9 +13,10 @@ var hp
 var move_right = true
 var speed = 100
 func _ready():
+	randomize()
 	set_physics_process(true)
 	sprite.texture = SPRITE_SHEET
-	sprite.frame = FRAME
+	sprite.frame = round(rand_range(13,15))
 	hp = HP
 	lifes = LIFES
 	pass

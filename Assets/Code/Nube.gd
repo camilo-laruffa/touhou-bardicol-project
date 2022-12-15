@@ -8,6 +8,7 @@ var time = 0
 
 
 func _ready():
+	randomize()
 	SPRITE.frame = round(rand_range(0,3))
 	pass
 
