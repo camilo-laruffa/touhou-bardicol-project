@@ -38,9 +38,11 @@ func _manage_input(delta):
 #Crea una instancia de bala, la mete a la escena y despues le setea la posicion inicial arriba del jugador
 func _shoot():
 	var bullet = BULLET.instance()
+	bullet.init(true,3,0,-16)
 	get_parent().add_child(bullet)
 	bullet.get_node("Hitbox").player_bullet = true
 	bullet.global_position = Vector2(get_node("Sprite").global_position.x, get_node("Sprite").global_position.y - 60)
+	bullet.damage = 3
 	can_Shoot = false
 
 func _can_Shoot():

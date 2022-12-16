@@ -9,6 +9,7 @@ export(float, 100) var offset: float = 5
 onready var SPRITE_SHEET = preload("res://Assets/Sprites/marisa_spritesheet.png")
 onready var sprite = get_node("Sprite")
 onready var BULLET = preload("res://Assets/Scenes/Bullet.tscn")
+onready var BONUS = preload("res://Assets/Scenes/Bonus.tscn")
 var bullet 
 var lives
 var hp
@@ -30,6 +31,7 @@ func _ready():
 	timer.set_wait_time(CD) #Cada CD seg puede disparar
 	timer.connect("timeout", self, "_can_Shoot")
 	set_physics_process(true)
+	#Aca le decimos que nos de un sprite aleatorio(es solo por ahora que debugeamos)
 	sprite.texture = SPRITE_SHEET
 	sprite.frame = round(rand_range(13,15))
 	hp = HP
@@ -52,17 +54,18 @@ func _recieve_damage(damage):
 	if (hp <= 0): 
 		lives -= 1
 		hp = HP
-	if (lives <= 0): queue_free() 
+	if (lives <= 0): 
+		var bonus = BONUS.instance()
+		bonus.init("POWER",1)
+		bonus.position = position
+		get_parent().add_child(bonus)
+		queue_free() 
 	
 func _circle_bullet():
-	for i in range(0,396,36):
-		var bureto = BULLET.instance()
-		bureto.get_node("Hitbox").player_bullet = false
-		bureto.get_node("Sprite").frame = 5
-		bureto.get_node("Sprite").modulate = Color(1,1,1)
-		bureto.get_node("Sprite").self_modulate = Color(1,1,1)
-		bureto.SPEED_X = 5 * cos(i)
-		bureto.SPEED_Y = 5 * sin(i)
-		add_child(bureto)
-		bureto.global_position = Vector2(position.x + cos(i)*amplitude, position.y + sin(i)*amplitude)
+	#Aca creo una bala cada x grados para armar un circulo
+	for i in range(0,380,20):
+		var bullet = BULLET.instance()
+		bullet.init(false,4,5*cos(i),5*sin(i))
+		add_child(bullet)
+		bullet.global_position = Vector2(position.x + cos(i)*amplitude, position.y + sin(i)*amplitude)
 	pass

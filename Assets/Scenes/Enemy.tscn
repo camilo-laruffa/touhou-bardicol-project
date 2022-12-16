@@ -15,7 +15,8 @@ __meta__ = {
 "_editor_description_": "El conjunto \"enemigo\"
 "
 }
-SPEED = 115.126
+HP = 30.0
+SPEED = 50.0
 FRAME = 14
 amplitude = 50.0
 
@@ -32,7 +33,7 @@ shape = SubResource( 2 )
 scale = Vector2( 2.7, 2.7 )
 texture = ExtResource( 1 )
 hframes = 6
-vframes = 3
+vframes = 4
 frame = 15
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]

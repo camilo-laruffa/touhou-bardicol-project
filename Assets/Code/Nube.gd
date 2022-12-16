@@ -6,6 +6,8 @@ export(float,10)var frequency: float = 5
 export(float, 10)var amplitude: float = 150
 var time = 0
 
+#Agregar init() para que las nubes tengan un toque más de personalidad
+# Idea: El spawn de nubes se puede usar como sistema de particulas, pero godot ya tiene asi que no se
 
 func _ready():
 	randomize()

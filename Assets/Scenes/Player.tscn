@@ -17,7 +17,7 @@ position = Vector2( -1, -1 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 1 )
 hframes = 6
-vframes = 3
+vframes = 4
 frame = 1
 
 [node name="Hitbox" type="Sprite" parent="Sprite"]
