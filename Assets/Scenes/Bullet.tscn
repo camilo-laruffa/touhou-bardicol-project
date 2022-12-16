@@ -22,8 +22,6 @@ hframes = 6
 vframes = 3
 frame = 3
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 volume_db = -47.194

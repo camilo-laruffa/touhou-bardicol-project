@@ -29,7 +29,7 @@ func _manage_input(delta):
 	if Input.is_action_pressed("shoot" ) && can_Shoot: 
 		_shoot()
 		timer.start()	
-	#Movimiento	
+	#Movimiento	CANNOT GO OUT OF BOUNDS
 	if Input.is_action_pressed("left") && sprite.global_position.x > 80: sprite.global_position.x -= speed 
 	if Input.is_action_pressed("right") && sprite.global_position.x < 620: sprite.global_position.x += speed
 	if Input.is_action_pressed("up") && sprite.global_position.y > 50: sprite.global_position.y -= speed
@@ -39,8 +39,14 @@ func _manage_input(delta):
 func _shoot():
 	var bullet = BULLET.instance()
 	get_parent().add_child(bullet)
+	bullet.get_node("Hitbox").player_bullet = true
 	bullet.global_position = Vector2(get_node("Sprite").global_position.x, get_node("Sprite").global_position.y - 60)
 	can_Shoot = false
 
 func _can_Shoot():
 	can_Shoot = true #Podes disparar cuando termina el timer
+
+
+func _on_Hurtbox_area_entered(area):
+	
+	pass # Replace with function body.

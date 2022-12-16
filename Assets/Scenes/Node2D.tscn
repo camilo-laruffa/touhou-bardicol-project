@@ -18,19 +18,19 @@ script = ExtResource( 3 )
 SPEED = 300.0
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( 494, 306 )
-scale = Vector2( 9, 9 )
+position = Vector2( 500, 300 )
+scale = Vector2( 9.52, 9.52 )
 z_index = -1
 texture = ExtResource( 2 )
 
 [node name="Background2" type="Sprite" parent="."]
-position = Vector2( 494, 310 )
-scale = Vector2( 9, 9 )
+position = Vector2( 490, 304 )
+scale = Vector2( 9.08, 9.08 )
 z_index = 2
 texture = ExtResource( 7 )
 
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
-position = Vector2( 322, 147 )
+position = Vector2( 316, -373 )
 
 [node name="Texto" type="RichTextLabel" parent="."]
 margin_left = 493.0
@@ -41,11 +41,11 @@ rect_scale = Vector2( 3.56, 3.56 )
 text = "100"
 
 [node name="Enemy3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 211, 282 )
+position = Vector2( 63, -100 )
 HP = 10.0
 
 [node name="Enemy2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 482, 284 )
+position = Vector2( 555, -83 )
 HP = 10.0
 
 [node name="Spawn nubes" parent="." instance=ExtResource( 8 )]
