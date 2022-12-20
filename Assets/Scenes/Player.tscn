@@ -9,11 +9,9 @@
 radius = 3.0
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
-position = Vector2( 145, 106 )
 script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -1, -1 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 1 )
 hframes = 6
@@ -21,6 +19,7 @@ vframes = 4
 frame = 1
 
 [node name="Hitbox" type="Sprite" parent="Sprite"]
+visible = false
 position = Vector2( 0, 1 )
 scale = Vector2( 0.759995, 0.759995 )
 texture = ExtResource( 2 )

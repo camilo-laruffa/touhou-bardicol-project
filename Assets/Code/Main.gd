@@ -12,8 +12,4 @@ func _ready():
 
 
 func _physics_process(delta):
-	text.clear()
-	
-	enemy = get_node("Enemy")
-	if enemy != null : 
-		text.add_text(str(enemy.hp))
+	pass

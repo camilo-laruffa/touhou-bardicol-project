@@ -1,50 +1,52 @@
-extends Node2D
+extends KinematicBody2D
 
+# Export hace que las variables se puedan cambiar en el Inspector, 
+# eso nos deja customizar cada prefab por separado
 export(float) var HP: float = 100 
 export(float) var CD: float = 1 
 export(float,1000) var SPEED: float = 10
+export(float,1000) var BULLET_SPEED: float = 100
 export(int) var LIVES: int = 3 
-export(int) var FRAME: int = 13
-export(float, 100) var offset: float = 5
+export(int) var ANGLE: int = 15 
+export(int) var ENEMY_FRAME: int = 13
+export(int) var BULLET_FRAME: int = 8
+export(String) var SHOOT_TYPE: String = "Circle Down"
+export(float,1000) var RADIO: float = 3
+export(int,-1,1) var direccion_horizontal: int = 1
+export(int,-1,1) var direccion_vertical: int = 0
 onready var SPRITE_SHEET = preload("res://Assets/Sprites/marisa_spritesheet.png")
 onready var sprite = get_node("Sprite")
-onready var BULLET = preload("res://Assets/Scenes/Bullet.tscn")
-onready var BONUS = preload("res://Assets/Scenes/Bonus.tscn")
+onready var BULLET = preload("res://Assets/Scenes/Prefabs/Bullet.tscn")
+onready var BONUS = preload("res://Assets/Scenes/Prefabs/Bonus.tscn")
 var bullet 
 var lives
 var hp
-var time = 0
-export(float,100) var amplitude: float = 3
 var timer = Timer.new()
+var player_position
+var velocity
 
-#POR AHORA SOLO TIENEN LA OPCION DE HACER BALAS EN CIRCULO, PERO PODEMOS PONER OPCIONES
-#LASERS, MUCHAS EN UNA DIRECCION, QUE EXPLOTEN, QUE SIGAN AL JUGADOR, LAS POSIBILIDADES SON ILIMITADAS
-#EL MUNDO ES NUESTRO CANVAS
-#PODEMOS HACER DISTINTAS ESCENAS CON CONJUNTOS DE ENEMIGOS Y ATAQUES DIFERENTES
-#SOLO TENEMOS QUE PERFECCIONAR EL CREADOR PARA PODER HACER PATRONES A NUESTRO GUSTO
 
 func _ready():
-	_circle_bullet()
 	randomize()
 	add_child(timer)
 	timer.set_one_shot(true)
 	timer.set_wait_time(CD) #Cada CD seg puede disparar
 	timer.connect("timeout", self, "_can_Shoot")
 	set_physics_process(true)
-	#Aca le decimos que nos de un sprite aleatorio(es solo por ahora que debugeamos)
-	sprite.texture = SPRITE_SHEET
-	sprite.frame = round(rand_range(13,15))
+	sprite.frame = ENEMY_FRAME
 	hp = HP
 	lives = LIVES
-	pass
 	
 func _physics_process(delta):
-	position.y += SPEED*delta
+	_movement()
+	
 	if(timer.is_stopped()): 
 		timer.start()
-		_circle_bullet()
-	pass
+		_shoot(SHOOT_TYPE)
 
+func _movement():
+	move_and_slide(Vector2(direccion_horizontal,direccion_vertical).normalized() * SPEED)
+		
 func _on_HurtBox_area_entered(hitbox):
 	if(hitbox.player_bullet):
 		_recieve_damage(hitbox.damage)
@@ -60,12 +62,44 @@ func _recieve_damage(damage):
 		bonus.position = position
 		get_parent().add_child(bonus)
 		queue_free() 
+
+func _shoot(var type: String):
+	type = type.to_upper()
+	match type:
+		"CIRCLE EXPLOSION":
+			_circle_bullet(1)
+		"CIRCLE AIMBOT":
+			_circle_bullet(2)
+		"CIRCLE DOWN":
+			_circle_bullet(3)
+		"AUTOAIM":
+			_autoaim()
+		_:
+			print("Invalid shooting type: ", type)
+			
+
+func _autoaim():
+	var bullet = BULLET.instance()
+	player_position = get_node("../Player").position
+	var direction = position.direction_to(player_position)
 	
-func _circle_bullet():
+	bullet.init(false,BULLET_FRAME,direction,BULLET_SPEED)
+	get_parent().add_child(bullet)
+	bullet.position = position
+	pass
+	
+func _circle_bullet(var type):
 	#Aca creo una bala cada x grados para armar un circulo
-	for i in range(0,380,20):
+	#Si le agregas un timer a la bala cada x tiempo + tiempototal podes hacer el efecto de disparo
+	#donde salen de a 1 las balas
+	var direction = Vector2(0,1)
+	for i in range(0,360 + ANGLE,ANGLE):
 		var bullet = BULLET.instance()
-		bullet.init(false,4,5*cos(i),5*sin(i))
-		add_child(bullet)
-		bullet.global_position = Vector2(position.x + cos(i)*amplitude, position.y + sin(i)*amplitude)
+		if (type == 1): direction = Vector2(cos(i),sin(i))
+		if (type == 2): 
+			player_position = get_parent().get_node("Player").position
+			direction =  position.direction_to(player_position)
+		bullet.init(false,BULLET_FRAME,direction,BULLET_SPEED)			
+		get_parent().add_child(bullet)
+		bullet.position = Vector2(position.x + cos(i)*RADIO,position.y + sin(i)*RADIO)
 	pass

@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var NUBE = preload("res://Assets/Scenes/Cloud.tscn")
+onready var NUBE = preload("res://Assets/Scenes/Prefabs/Cloud.tscn")
 export(float) var CD : float = 1
 
 var timer = Timer.new() 

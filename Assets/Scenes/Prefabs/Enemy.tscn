@@ -7,8 +7,7 @@
 [sub_resource type="CircleShape2D" id=2]
 radius = 45.583
 
-[node name="KinematicBody2D" type="Node2D"]
-position = Vector2( 506, 297 )
+[node name="Enemy" type="KinematicBody2D"]
 scale = Vector2( 1.04, 1.04 )
 script = ExtResource( 2 )
 __meta__ = {
@@ -16,9 +15,12 @@ __meta__ = {
 "
 }
 HP = 30.0
-SPEED = 50.0
-FRAME = 14
-amplitude = 50.0
+SPEED = 0.0
+BULLET_SPEED = 265.422
+LIVES = 1
+ANGLE = 20
+SHOOT_TYPE = "Circle aimbot"
+RADIO = 129.324
 
 [node name="HurtBox" type="Area2D" parent="."]
 collision_layer = 4
@@ -26,7 +28,6 @@ collision_mask = 8
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2( 0, -1 )
 shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -34,6 +35,8 @@ scale = Vector2( 2.7, 2.7 )
 texture = ExtResource( 1 )
 hframes = 6
 vframes = 4
-frame = 15
+frame = 13
+
+[node name="Shooting_Point" type="Node2D" parent="."]
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
