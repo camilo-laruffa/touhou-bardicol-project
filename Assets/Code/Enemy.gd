@@ -3,7 +3,8 @@ extends KinematicBody2D
 # Export hace que las variables se puedan cambiar en el Inspector, 
 # eso nos deja customizar cada prefab por separado
 export(float) var HP: float = 100 
-export(float) var CD: float = 1 
+export(float,20) var SHOOT_CD: float = 1 
+export(float,2) var BULLET_CD: float = 0.3 
 export(float,1000) var SPEED: float = 10
 export(float,1000) var BULLET_SPEED: float = 100
 export(int) var LIVES: int = 3 
@@ -21,17 +22,21 @@ onready var BONUS = preload("res://Assets/Scenes/Prefabs/Bonus.tscn")
 var bullet 
 var lives
 var hp
-var timer = Timer.new()
+var shoot_timer = Timer.new()
+var bullet_timer = Timer.new()
 var player_position
 var velocity
+var can_shoot = true
 
 
 func _ready():
 	randomize()
-	add_child(timer)
-	timer.set_one_shot(true)
-	timer.set_wait_time(CD) #Cada CD seg puede disparar
-	timer.connect("timeout", self, "_can_Shoot")
+	add_child(shoot_timer)
+	add_child(bullet_timer)
+	shoot_timer.set_one_shot(true)
+	bullet_timer.set_one_shot(true)
+	shoot_timer.set_wait_time(SHOOT_CD) #Cada CD seg puede disparar
+	bullet_timer.set_wait_time(BULLET_CD) #Cada CD seg puede salir una bala (osea bullet_cd < shoot_cd)
 	set_physics_process(true)
 	sprite.frame = ENEMY_FRAME
 	hp = HP
@@ -39,10 +44,13 @@ func _ready():
 	
 func _physics_process(delta):
 	_movement()
-	
-	if(timer.is_stopped()): 
-		timer.start()
-		_shoot(SHOOT_TYPE)
+	if shoot_timer.is_stopped() :
+		can_shoot = !can_shoot
+		shoot_timer.start()
+	if can_shoot:
+		if bullet_timer.is_stopped() :
+			_shoot(SHOOT_TYPE)
+			bullet_timer.start()
 
 func _movement():
 	move_and_slide(Vector2(direccion_horizontal,direccion_vertical).normalized() * SPEED)
@@ -79,6 +87,7 @@ func _shoot(var type: String):
 			
 
 func _autoaim():
+	#Enviamos una bala hacia la posicion del jugador
 	var bullet = BULLET.instance()
 	player_position = get_node("../Player").position
 	var direction = position.direction_to(player_position)
