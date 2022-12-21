@@ -7,6 +7,7 @@ export(float,20) var SHOOT_CD: float = 1
 export(float,2) var BULLET_CD: float = 0.3 
 export(float,1000) var SPEED: float = 10
 export(float,1000) var BULLET_SPEED: float = 100
+export(float,1000) var TIME_ALIVE: float = 100
 export(int) var LIVES: int = 3 
 export(int) var ANGLE: int = 15 
 export(int) var ENEMY_FRAME: int = 13
@@ -24,29 +25,38 @@ var lives
 var hp
 var shoot_timer = Timer.new()
 var bullet_timer = Timer.new()
+var death_timer = Timer.new()
 var player_position
 var velocity
-var can_shoot = true
+var can_shoot = false
 
 
 func _ready():
 	randomize()
 	add_child(shoot_timer)
 	add_child(bullet_timer)
+	add_child(death_timer)
 	shoot_timer.set_one_shot(true)
 	bullet_timer.set_one_shot(true)
+	death_timer.set_one_shot(true)
+	death_timer.set_wait_time(TIME_ALIVE) 
 	shoot_timer.set_wait_time(SHOOT_CD) #Cada CD seg puede disparar
 	bullet_timer.set_wait_time(BULLET_CD) #Cada CD seg puede salir una bala (osea bullet_cd < shoot_cd)
 	set_physics_process(true)
 	sprite.frame = ENEMY_FRAME
 	hp = HP
 	lives = LIVES
+	death_timer.start()
 	
 func _physics_process(delta):
+	if death_timer.is_stopped(): queue_free() # TE MORIS HIJO DE PUTA AJAJAJAJAAJAAJ
 	_movement()
-	if shoot_timer.is_stopped() :
-		can_shoot = !can_shoot
-		shoot_timer.start()
+	if SHOOT_CD != 0 :
+		if shoot_timer.is_stopped() :
+			can_shoot = !can_shoot
+			shoot_timer.start()
+	else:
+		can_shoot = true
 	if can_shoot:
 		if bullet_timer.is_stopped() :
 			_shoot(SHOOT_TYPE)
@@ -104,11 +114,13 @@ func _circle_bullet(var type):
 	var direction = Vector2(0,1)
 	for i in range(0,360 + ANGLE,ANGLE):
 		var bullet = BULLET.instance()
-		if (type == 1): direction = Vector2(cos(i),sin(i))
+		if (type == 1): 
+			direction = Vector2(cos(i),sin(i))
 		if (type == 2): 
 			player_position = get_parent().get_node("Player").position
 			direction =  position.direction_to(player_position)
 		bullet.init(false,BULLET_FRAME,direction,BULLET_SPEED)			
 		get_parent().add_child(bullet)
 		bullet.position = Vector2(position.x + cos(i)*RADIO,position.y + sin(i)*RADIO)
+		bullet.get_node("AudioStreamPlayer").volume_db = -62
 	pass

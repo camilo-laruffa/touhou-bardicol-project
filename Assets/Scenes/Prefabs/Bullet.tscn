@@ -9,7 +9,6 @@
 radius = 32.0624
 
 [node name="Bullet" type="KinematicBody2D"]
-position = Vector2( 175, 146 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -24,8 +23,8 @@ frame = 3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
-volume_db = -47.194
-pitch_scale = 1.37
+volume_db = -32.906
+pitch_scale = 1.46
 autoplay = true
 
 [node name="Hitbox" type="Area2D" parent="."]

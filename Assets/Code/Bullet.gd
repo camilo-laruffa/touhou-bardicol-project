@@ -27,7 +27,10 @@ func _ready():
 	if(!Player_bullet):
 		SPRITE.self_modulate = Self_modulate
 		SPRITE.modulate = Modulate
-		rotation = position.angle_to_point(get_parent().get_node("Player").position) + 1.5
+		#Esto solo lo gira "bien" de un lado
+		#rotation = position.angle_to_point(get_parent().get_node("Player").position) + 1.5
+	else: 
+		get_node("AudioStreamPlayer").volume_db = -60
 	SPRITE.frame = Frame
 	add_child(timer)
 	timer.set_wait_time(3)

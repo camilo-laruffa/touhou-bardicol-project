@@ -2,7 +2,7 @@ extends Node2D
 
 var POINTS = 1
 onready var SPRITE = get_node("Sprite")
-var frame = 19
+export(int) var frame: int = 19
 
 func init(var type: String, var points: int):
 	match type:

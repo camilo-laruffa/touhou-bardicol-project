@@ -8,7 +8,6 @@
 radius = 45.583
 
 [node name="Enemy" type="KinematicBody2D"]
-scale = Vector2( 1.04, 1.04 )
 script = ExtResource( 2 )
 __meta__ = {
 "_editor_description_": "El conjunto \"enemigo\"

@@ -3,7 +3,8 @@ extends KinematicBody2D
 onready var BULLET = preload("res://Assets/Scenes/Prefabs/Bullet.tscn")
 onready var sprite = get_node("Sprite")
 onready var hitbox = get_node("Sprite/Hitbox")
-export(float) var SPEED: float = 30
+export(float) var SPEED: float = 300
+var velocity = Vector2()
 var speed
 const CD = 0.1
 var can_Shoot = true
@@ -19,10 +20,13 @@ func _ready():
 	
 func _physics_process(delta):
 	_manage_input(delta)
+	velocity = move_and_slide(velocity)
+	
 
 #Controla el input
 func _manage_input(delta):
-	speed = delta * SPEED/3.5 if (Input.is_action_pressed("shift")) else SPEED*delta #Esto no es lo más optimo pero queria probarlo jasja
+	velocity = Vector2()
+	speed = SPEED/2.5 if (Input.is_action_pressed("shift")) else SPEED #Esto no es lo más optimo pero queria probarlo jasja
 	Visible = true if (Input.is_action_pressed("shift")) else false
 	get_node("Sprite/Hitbox").set_visible(Visible)	
 	
@@ -30,10 +34,11 @@ func _manage_input(delta):
 		_shoot()
 		timer.start()	
 	#Movimiento	CANNOT GO OUT OF BOUNDS
-	if Input.is_action_pressed("left") && position.x > 30: position.x -= speed 
-	if Input.is_action_pressed("right") &&position.x < 610: position.x += speed
-	if Input.is_action_pressed("up") && position.y > 50: position.y -= speed
-	if Input.is_action_pressed("down") && position.y < 550: position.y += speed
+	if Input.is_action_pressed("left") && position.x > 30: velocity.x -= 1
+	if Input.is_action_pressed("right") &&position.x < 610: velocity.x += 1
+	if Input.is_action_pressed("up") && position.y > 50: velocity.y -= 1
+	if Input.is_action_pressed("down") && position.y < 550: velocity.y += 1
+	velocity = velocity.normalized() * speed 
 	
 #Crea una instancia de bala, la mete a la escena y despues le setea la posicion inicial arriba del jugador
 func _shoot():

@@ -14,7 +14,6 @@ script = ExtResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 318, 548 )
-SPEED = 300.0
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 500, 300 )
@@ -29,39 +28,38 @@ z_index = 2
 texture = ExtResource( 7 )
 
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
-position = Vector2( 150, 136 )
+position = Vector2( 309, 54 )
 collision_layer = 4
 collision_mask = 8
-BULLET_CD = 0.105
-BULLET_SPEED = 363.166
-ANGLE = 10
+SHOOT_CD = 1.15
+BULLET_SPEED = 235.356
+ANGLE = 15
+BULLET_FRAME = 4
 SHOOT_TYPE = "Circle explosion"
-RADIO = 99.249
+RADIO = 0.0
+direccion_horizontal = 0
+direccion_vertical = 1
 
 [node name="Enemy2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 511, 140 )
+position = Vector2( 592, 58 )
 collision_layer = 4
 collision_mask = 8
+BULLET_CD = 0.15
+BULLET_SPEED = 500.0
 ENEMY_FRAME = 15
-BULLET_FRAME = 4
+BULLET_FRAME = 12
+SHOOT_TYPE = "Autoaim"
 RADIO = 54.136
+direccion_horizontal = -1
 
 [node name="Enemy3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 316, 101 )
+position = Vector2( 49, 55 )
 collision_layer = 4
 collision_mask = 8
+BULLET_CD = 0.15
+BULLET_SPEED = 500.0
 ENEMY_FRAME = 14
-BULLET_FRAME = 7
 SHOOT_TYPE = "Autoaim"
-
-[node name="Texto" type="RichTextLabel" parent="."]
-visible = false
-margin_left = 493.0
-margin_top = 35.0
-margin_right = 533.0
-margin_bottom = 75.0
-rect_scale = Vector2( 3.56, 3.56 )
-text = "100"
 
 [node name="Spawn nubes" parent="." instance=ExtResource( 8 )]
 position = Vector2( 66, -24 )
@@ -69,17 +67,18 @@ position = Vector2( 66, -24 )
 [node name="Spawn nubes2" parent="." instance=ExtResource( 8 )]
 position = Vector2( 174, -75 )
 
-[node name="Spawn nubes5" parent="." instance=ExtResource( 8 )]
-position = Vector2( 555, -23 )
-
 [node name="Spawn nubes3" parent="." instance=ExtResource( 8 )]
 position = Vector2( 330, -24 )
 
 [node name="Spawn nubes4" parent="." instance=ExtResource( 8 )]
 position = Vector2( 481, -84 )
 
+[node name="Spawn nubes5" parent="." instance=ExtResource( 8 )]
+position = Vector2( 555, -23 )
+
 [node name="Bonus" parent="." instance=ExtResource( 3 )]
-position = Vector2( 480, 323 )
+position = Vector2( 417, 124 )
+frame = 18
 
 [editable path="Player"]
 [editable path="Enemy"]
