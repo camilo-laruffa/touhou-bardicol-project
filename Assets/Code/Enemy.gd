@@ -99,7 +99,9 @@ func _shoot(var type: String):
 func _autoaim():
 	#Enviamos una bala hacia la posicion del jugador
 	var bullet = BULLET.instance()
-	player_position = get_node("../Player").position
+	player_position = Vector2(0,0)
+	if(is_instance_valid(get_node("../../Player"))):
+		player_position = get_node("../../Player").position
 	var direction = position.direction_to(player_position)
 	
 	bullet.init(false,BULLET_FRAME,direction,BULLET_SPEED)
@@ -111,14 +113,16 @@ func _circle_bullet(var type):
 	#Aca creo una bala cada x grados para armar un circulo
 	#Si le agregas un timer a la bala cada x tiempo + tiempototal podes hacer el efecto de disparo
 	#donde salen de a 1 las balas
+	player_position = Vector2(0,0)
 	var direction = Vector2(0,1)
 	for i in range(0,360 + ANGLE,ANGLE):
 		var bullet = BULLET.instance()
 		if (type == 1): 
 			direction = Vector2(cos(i),sin(i))
 		if (type == 2): 
-			player_position = get_parent().get_node("Player").position
-			direction =  position.direction_to(player_position)
+			if(is_instance_valid(get_node("../../Player"))):
+				player_position = get_node("../../Player").position
+				direction =  position.direction_to(player_position)
 		bullet.init(false,BULLET_FRAME,direction,BULLET_SPEED)			
 		get_parent().add_child(bullet)
 		bullet.position = Vector2(position.x + cos(i)*RADIO,position.y + sin(i)*RADIO)
