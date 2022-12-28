@@ -4,8 +4,8 @@
 [ext_resource path="res://Assets/Code/Enemy.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Code/HurtBox.gd" type="Script" id=3]
 
-[sub_resource type="CircleShape2D" id=2]
-radius = 45.583
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 28, 28 )
 
 [node name="Enemy" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -27,7 +27,7 @@ collision_mask = 8
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 2.7, 2.7 )

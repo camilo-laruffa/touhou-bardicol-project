@@ -1,0 +1,149 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Scenes/Prefabs/Enemy.tscn" type="PackedScene" id=1]
+
+[node name="Node2D2" type="Node2D"]
+
+[node name="Enemy" parent="." instance=ExtResource( 1 )]
+position = Vector2( -44, 48 )
+HP = 10.0
+SHOOT_CD = 2.0
+BULLET_DURATION = 7.0
+BULLET_CD = 1.0
+SPEED = 135.339
+TIME_ALIVE = 7.0
+ANGLE = 15
+BULLET_FRAME = 4
+SHOOT_TYPE = "Circle explosion"
+RADIO = 0.0
+
+[node name="Enemy4" parent="." instance=ExtResource( 1 )]
+position = Vector2( -215, 48 )
+HP = 10.0
+SHOOT_CD = 2.0
+BULLET_DURATION = 7.0
+BULLET_CD = 1.0
+SPEED = 135.339
+TIME_ALIVE = 7.0
+ANGLE = 15
+BULLET_FRAME = 4
+SHOOT_TYPE = "Circle explosion"
+RADIO = 0.0
+
+[node name="Enemy5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1075, 48 )
+HP = 10.0
+SHOOT_CD = 2.0
+BULLET_DURATION = 7.0
+BULLET_CD = 1.0
+SPEED = 135.339
+TIME_ALIVE = 7.0
+ANGLE = 15
+BULLET_FRAME = 4
+SHOOT_TYPE = "Circle explosion"
+RADIO = 0.0
+direccion_horizontal = -1
+
+[node name="Enemy8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 904, 48 )
+HP = 10.0
+SHOOT_CD = 2.0
+BULLET_DURATION = 7.0
+BULLET_CD = 1.0
+SPEED = 135.339
+TIME_ALIVE = 7.0
+ANGLE = 15
+BULLET_FRAME = 4
+SHOOT_TYPE = "Circle explosion"
+RADIO = 0.0
+direccion_horizontal = -1
+
+[node name="Enemy9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 90, -52 )
+HP = 10.0
+SHOOT_CD = 2.0
+BULLET_DURATION = 2.15
+BULLET_CD = 0.165
+SPEED = 172.933
+BULLET_SPEED = 520.602
+TIME_ALIVE = 3.0
+ENEMY_FRAME = 15
+BULLET_FRAME = 10
+SHOOT_TYPE = "Autoaim"
+direccion_horizontal = 0
+direccion_vertical = 1
+
+[node name="Enemy10" parent="." instance=ExtResource( 1 )]
+position = Vector2( 90, -144 )
+HP = 10.0
+SHOOT_CD = 2.0
+BULLET_DURATION = 2.15
+BULLET_CD = 0.165
+SPEED = 172.933
+BULLET_SPEED = 520.602
+TIME_ALIVE = 3.0
+ENEMY_FRAME = 15
+BULLET_FRAME = 10
+SHOOT_TYPE = "Autoaim"
+direccion_horizontal = 0
+direccion_vertical = 1
+
+[node name="Enemy11" parent="." instance=ExtResource( 1 )]
+position = Vector2( 90, -229 )
+HP = 10.0
+SHOOT_CD = 2.0
+BULLET_DURATION = 2.15
+BULLET_CD = 0.165
+SPEED = 172.933
+BULLET_SPEED = 520.602
+TIME_ALIVE = 3.0
+ENEMY_FRAME = 15
+BULLET_FRAME = 10
+SHOOT_TYPE = "Autoaim"
+direccion_horizontal = 0
+direccion_vertical = 1
+
+[node name="Enemy12" parent="." instance=ExtResource( 1 )]
+position = Vector2( 770, -52 )
+HP = 10.0
+SHOOT_CD = 2.0
+BULLET_DURATION = 2.15
+BULLET_CD = 0.165
+SPEED = 172.933
+BULLET_SPEED = 520.602
+TIME_ALIVE = 3.0
+ENEMY_FRAME = 15
+BULLET_FRAME = 10
+SHOOT_TYPE = "Autoaim"
+direccion_horizontal = 0
+direccion_vertical = 1
+
+[node name="Enemy13" parent="." instance=ExtResource( 1 )]
+position = Vector2( 770, -144 )
+HP = 10.0
+SHOOT_CD = 2.0
+BULLET_DURATION = 2.15
+BULLET_CD = 0.165
+SPEED = 172.933
+BULLET_SPEED = 520.602
+TIME_ALIVE = 3.0
+ENEMY_FRAME = 15
+BULLET_FRAME = 10
+SHOOT_TYPE = "Autoaim"
+direccion_horizontal = 0
+direccion_vertical = 1
+
+[node name="Enemy14" parent="." instance=ExtResource( 1 )]
+position = Vector2( 770, -229 )
+HP = 10.0
+SHOOT_CD = 2.0
+BULLET_DURATION = 2.15
+BULLET_CD = 0.165
+SPEED = 172.933
+BULLET_SPEED = 520.602
+TIME_ALIVE = 3.0
+ENEMY_FRAME = 15
+BULLET_FRAME = 10
+SHOOT_TYPE = "Autoaim"
+direccion_horizontal = 0
+direccion_vertical = 1

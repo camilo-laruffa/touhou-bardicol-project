@@ -15,7 +15,7 @@ func _ready():
 	pass
 
 func _process(delta):
-	if(time > 2):
+	if(time > 2.5):
 		_destruir()
 	time += delta
 	position.y += delta * speed

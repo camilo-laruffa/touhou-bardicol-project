@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Scenes/Prefabs/Enemy.tscn" type="PackedScene" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Big_Enemy" parent="." instance=ExtResource( 1 )]
+position = Vector2( 430, -38 )
+scale = Vector2( 1.5, 1.5 )
+HP = 10.0
+SHOOT_CD = 2.0
+BULLET_DURATION = 7.0
+BULLET_CD = 2.0
+SPEED = 50.0
+BULLET_SPEED = 100.0
+TIME_ALIVE = 15.0
+ANGLE = 10
+ENEMY_FRAME = 14
+SHOOT_TYPE = "Circle explosion"
+RADIO = 0.0
+direccion_horizontal = 0
+direccion_vertical = 1

@@ -10,7 +10,7 @@ func _ready():
 	_spawnear()
 	add_child(timer)
 	timer.set_one_shot(true)
-	timer.set_wait_time(CD) #Cada CD seg puede disparar
+	timer.set_wait_time(CD) 
 func _process(delta):
 	if(timer.is_stopped()):
 		_spawnear()
@@ -18,7 +18,7 @@ func _process(delta):
 		
 func _spawnear():
 	var nube = NUBE.instance()	
-	get_parent().add_child(nube)
+	get_parent().call_deferred("add_child", nube)
 	nube.global_position = Vector2(self.global_position.x, self.global_position.y)
 	nube.z_index = -2
 	

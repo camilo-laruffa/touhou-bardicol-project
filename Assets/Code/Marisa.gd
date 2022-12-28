@@ -34,16 +34,17 @@ func _manage_input(delta):
 		_shoot()
 		timer.start()	
 	#Movimiento	CANNOT GO OUT OF BOUNDS
-	if Input.is_action_pressed("left") && position.x > 30: velocity.x -= 1
-	if Input.is_action_pressed("right") &&position.x < 610: velocity.x += 1
-	if Input.is_action_pressed("up") && position.y > 50: velocity.y -= 1
-	if Input.is_action_pressed("down") && position.y < 550: velocity.y += 1
+	if Input.is_action_pressed("left") && position.x > 70: velocity.x -= 1
+	if Input.is_action_pressed("right") && position.x < 790: velocity.x += 1
+	if Input.is_action_pressed("up") && position.y > 10: velocity.y -= 1
+	if Input.is_action_pressed("down") && position.y < 680: velocity.y += 1
 	velocity = velocity.normalized() * speed 
 	
 #Crea una instancia de bala, la mete a la escena y despues le setea la posicion inicial arriba del jugador
 func _shoot():
 	var bullet = BULLET.instance()
-	bullet.init(true,3,Vector2(0,-16),100)
+	#Los valores de las balas del jugador no son customizables sin cambiar el codigo
+	bullet.init(true,3,Vector2(0,-16),100,1)
 	get_parent().add_child(bullet)
 	bullet.get_node("Hitbox").player_bullet = true
 	bullet.global_position = Vector2(get_node("Sprite").global_position.x, get_node("Sprite").global_position.y - 60)
