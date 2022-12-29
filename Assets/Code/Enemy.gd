@@ -119,13 +119,13 @@ func _circle_bullet(var type):
 	for i in range(0,360 + ANGLE,ANGLE):
 		var bullet = BULLET.instance()
 		if (type == 1): 
-			direction = Vector2(cos(i),sin(i))
+			direction = Vector2(cos(deg2rad(i)),sin(deg2rad(i)))
 		if (type == 2): 
 			if(is_instance_valid(get_node("../../Player"))):
 				player_position = get_node("../../Player").position
 				direction =  position.direction_to(player_position)
 		bullet.init(false,BULLET_FRAME,direction,BULLET_SPEED,BULLET_DURATION)			
-		bullet.position = Vector2(position.x + cos(i)*RADIO,position.y + sin(i)*RADIO)
+		bullet.position = Vector2(position.x + cos(deg2rad(i))*RADIO,position.y + sin(deg2rad(i))*RADIO)
 		get_parent().call_deferred("add_child", bullet)
-		bullet.get_node("AudioStreamPlayer").volume_db = -42
+		bullet.get_node("AudioStreamPlayer").volume_db = -52
 	pass
