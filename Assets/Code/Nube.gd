@@ -20,5 +20,6 @@ func _process(delta):
 	time += delta
 	position.y += delta * speed
 	position.x += cos(time*frequency) * amplitude
+	
 func _destruir():
 	queue_free()

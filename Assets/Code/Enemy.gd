@@ -84,7 +84,8 @@ func _recieve_damage(damage):
 		queue_free() 
 
 func _shoot(var type: String):
-	type = type.to_upper() # Aca hace que todo sea mayusculas para que no haya problem
+	type = type.to_upper() # Aca hace que todo sea mayusculas para que no haya problem	
+	print("Instancing Shoot..")
 	match type:
 		"CIRCLE EXPLOSION":
 			_circle_bullet(1)
