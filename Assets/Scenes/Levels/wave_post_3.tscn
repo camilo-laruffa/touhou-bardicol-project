@@ -1,0 +1,136 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Scenes/Prefabs/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Code/Wave.gd" type="Script" id=2]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+duration = 5.0
+
+[node name="Enemy_A13" parent="." instance=ExtResource( 1 )]
+position = Vector2( 412, 342 )
+HP = 9.22337e+18
+SHOOT_CD = 0.05
+BULLET_DURATION = 5.0
+BULLET_CD = 0.05
+SPEED = 400.0
+BULLET_SPEED = 1000.0
+TIME_ALIVE = 5.0
+ANGLE = 45
+ENEMY_FRAME = 4
+BULLET_FRAME = 9
+SHOOT_TYPE = "Autoaim"
+RADIO = 1.0
+direccion_horizontal = 0
+
+[node name="Enemy_A14" parent="." instance=ExtResource( 1 )]
+position = Vector2( 412, 142 )
+HP = 9.22337e+18
+SHOOT_CD = 0.05
+BULLET_DURATION = 5.0
+BULLET_CD = 0.05
+SPEED = 400.0
+BULLET_SPEED = 1000.0
+TIME_ALIVE = 5.0
+ANGLE = 45
+ENEMY_FRAME = 4
+BULLET_FRAME = 9
+SHOOT_TYPE = "Autoaim"
+RADIO = 1.0
+direccion_horizontal = 0
+
+[node name="Enemy_A15" parent="." instance=ExtResource( 1 )]
+position = Vector2( 341.289, 171.289 )
+HP = 9.22337e+18
+SHOOT_CD = 0.05
+BULLET_DURATION = 5.0
+BULLET_CD = 0.05
+SPEED = 400.0
+BULLET_SPEED = 1000.0
+TIME_ALIVE = 5.0
+ANGLE = 45
+ENEMY_FRAME = 4
+BULLET_FRAME = 9
+SHOOT_TYPE = "Autoaim"
+RADIO = 1.0
+direccion_horizontal = 0
+
+[node name="Enemy_A16" parent="." instance=ExtResource( 1 )]
+position = Vector2( 482.711, 171.289 )
+HP = 9.22337e+18
+SHOOT_CD = 0.05
+BULLET_DURATION = 5.0
+BULLET_CD = 0.05
+SPEED = 400.0
+BULLET_SPEED = 1000.0
+TIME_ALIVE = 5.0
+ANGLE = 45
+ENEMY_FRAME = 4
+BULLET_FRAME = 9
+SHOOT_TYPE = "Autoaim"
+RADIO = 1.0
+direccion_horizontal = 0
+
+[node name="Enemy_A17" parent="." instance=ExtResource( 1 )]
+position = Vector2( 482.711, 312.711 )
+HP = 9.22337e+18
+SHOOT_CD = 0.05
+BULLET_DURATION = 5.0
+BULLET_CD = 0.05
+SPEED = 400.0
+BULLET_SPEED = 1000.0
+TIME_ALIVE = 5.0
+ANGLE = 45
+ENEMY_FRAME = 4
+BULLET_FRAME = 9
+SHOOT_TYPE = "Autoaim"
+RADIO = 1.0
+direccion_horizontal = 0
+
+[node name="Enemy_A18" parent="." instance=ExtResource( 1 )]
+position = Vector2( 341.289, 312.711 )
+HP = 9.22337e+18
+SHOOT_CD = 0.05
+BULLET_DURATION = 5.0
+BULLET_CD = 0.05
+SPEED = 400.0
+BULLET_SPEED = 1000.0
+TIME_ALIVE = 5.0
+ANGLE = 45
+ENEMY_FRAME = 4
+BULLET_FRAME = 9
+SHOOT_TYPE = "Autoaim"
+RADIO = 1.0
+direccion_horizontal = 0
+
+[node name="Enemy_A19" parent="." instance=ExtResource( 1 )]
+position = Vector2( 312, 242 )
+HP = 9.22337e+18
+SHOOT_CD = 0.05
+BULLET_DURATION = 5.0
+BULLET_CD = 0.05
+SPEED = 400.0
+BULLET_SPEED = 1000.0
+TIME_ALIVE = 5.0
+ANGLE = 45
+ENEMY_FRAME = 4
+BULLET_FRAME = 9
+SHOOT_TYPE = "Autoaim"
+RADIO = 1.0
+direccion_horizontal = 0
+
+[node name="Enemy_A20" parent="." instance=ExtResource( 1 )]
+position = Vector2( 512, 242 )
+HP = 9.22337e+18
+SHOOT_CD = 0.05
+BULLET_DURATION = 5.0
+BULLET_CD = 0.05
+SPEED = 400.0
+BULLET_SPEED = 1000.0
+TIME_ALIVE = 5.0
+ANGLE = 45
+ENEMY_FRAME = 4
+BULLET_FRAME = 9
+SHOOT_TYPE = "Autoaim"
+RADIO = 1.0
+direccion_horizontal = 0

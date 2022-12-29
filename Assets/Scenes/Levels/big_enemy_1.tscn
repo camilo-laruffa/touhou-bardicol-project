@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Scenes/Prefabs/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Code/Wave.gd" type="Script" id=2]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+duration = 4.0
+
+[node name="Big_Enemy" parent="." instance=ExtResource( 1 )]
+position = Vector2( 430, -38 )
+scale = Vector2( 1.5, 1.5 )
+HP = 500.0
+SHOOT_CD = 5.0
+BULLET_DURATION = 7.0
+BULLET_CD = 0.01
+SPEED = 50.0
+BULLET_SPEED = 200.0
+TIME_ALIVE = 15.0
+ANGLE = 10
+ENEMY_FRAME = 14
+BULLET_FRAME = 7
+SHOOT_TYPE = "Single Bullet"
+RADIO = 0.0
+direccion_horizontal = 0
+direccion_vertical = 1
