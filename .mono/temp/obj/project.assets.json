@@ -2,13 +2,13 @@
   "version": 3,
   "targets": {
     ".NETFramework,Version=v4.7.2": {
-      "Microsoft.NETFramework.ReferenceAssemblies/1.0.2": {
+      "Microsoft.NETFramework.ReferenceAssemblies/1.0.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETFramework.ReferenceAssemblies.net472": "1.0.2"
+          "Microsoft.NETFramework.ReferenceAssemblies.net472": "1.0.0"
         }
       },
-      "Microsoft.NETFramework.ReferenceAssemblies.net472/1.0.2": {
+      "Microsoft.NETFramework.ReferenceAssemblies.net472/1.0.0": {
         "type": "package",
         "build": {
           "build/Microsoft.NETFramework.ReferenceAssemblies.net472.targets": {}
@@ -17,21 +17,21 @@
     }
   },
   "libraries": {
-    "Microsoft.NETFramework.ReferenceAssemblies/1.0.2": {
-      "sha512": "5/cSEVld+px/CuRrbohO/djfg6++eR6zGpy88MgqloXvkj//WXWpFZyu/OpkXPN0u5m+dN/EVwLNYFUxD4h2+A==",
+    "Microsoft.NETFramework.ReferenceAssemblies/1.0.0": {
+      "sha512": "7D2TMufjGiowmt0E941kVoTIS+GTNzaPopuzM1/1LSaJAdJdBrVP0SkZW7AgDd0a2U1DjsIeaKG1wxGVBNLDMw==",
       "type": "package",
-      "path": "microsoft.netframework.referenceassemblies/1.0.2",
+      "path": "microsoft.netframework.referenceassemblies/1.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
+        "microsoft.netframework.referenceassemblies.1.0.0.nupkg.sha512",
         "microsoft.netframework.referenceassemblies.nuspec"
       ]
     },
-    "Microsoft.NETFramework.ReferenceAssemblies.net472/1.0.2": {
-      "sha512": "ryAuwkvjMC9xYQ0VXsG7ZBo62y5tBmYaCnovOL5IXfnQPQqjvJGRkLMDyUx+dnCb96UVLJv83R6XK+sRnDnaZg==",
+    "Microsoft.NETFramework.ReferenceAssemblies.net472/1.0.0": {
+      "sha512": "VI0f22cH/xOlXLUVY7t6vr2Gi7cg0vzwpspNGz5isRusyspZblF7jJMw49E8mF1m071JyeVmZVkIK9c5kbiyFA==",
       "type": "package",
-      "path": "microsoft.netframework.referenceassemblies.net472/1.0.2",
+      "path": "microsoft.netframework.referenceassemblies.net472/1.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -404,61 +404,54 @@
         "build/.NETFramework/v4.7.2/sysglobl.dll",
         "build/.NETFramework/v4.7.2/sysglobl.xml",
         "build/Microsoft.NETFramework.ReferenceAssemblies.net472.targets",
-        "microsoft.netframework.referenceassemblies.net472.1.0.2.nupkg.sha512",
+        "microsoft.netframework.referenceassemblies.net472.1.0.0.nupkg.sha512",
         "microsoft.netframework.referenceassemblies.net472.nuspec"
       ]
     }
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.7.2": [
-      "Microsoft.NETFramework.ReferenceAssemblies >= 1.0.2"
+      "Microsoft.NETFramework.ReferenceAssemblies >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Camilo\\.nuget\\packages\\": {}
+    "C:\\Users\\Maicol\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Godot_v3.5.1-stable_mono_win64\\Touhou\\Touhou - The Bardicol experience.csproj",
+      "projectUniqueName": "D:\\GODOT\\touhou-bardicol-project-main\\Touhou - The Bardicol experience.csproj",
       "projectName": "Touhou - The Bardicol experience",
-      "projectPath": "C:\\Godot_v3.5.1-stable_mono_win64\\Touhou\\Touhou - The Bardicol experience.csproj",
-      "packagesPath": "C:\\Users\\Camilo\\.nuget\\packages\\",
-      "outputPath": "C:\\Godot_v3.5.1-stable_mono_win64\\Touhou\\.mono\\temp\\obj\\",
+      "projectPath": "D:\\GODOT\\touhou-bardicol-project-main\\Touhou - The Bardicol experience.csproj",
+      "packagesPath": "C:\\Users\\Maicol\\.nuget\\packages\\",
+      "outputPath": "D:\\GODOT\\touhou-bardicol-project-main\\.mono\\temp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Camilo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Maicol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net472"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net472": {
-          "targetAlias": "net472",
           "projectReferences": {}
         }
-      },
-      "warningProperties": {
-        "warnAsError": [
-          "NU1605"
-        ]
       }
     },
     "frameworks": {
       "net472": {
-        "targetAlias": "net472",
         "dependencies": {
           "Microsoft.NETFramework.ReferenceAssemblies": {
-            "suppressParent": "All",
             "target": "Package",
-            "version": "[1.0.2, )",
+            "version": "[1.0.0, )",
             "autoReferenced": true
           }
-        },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        }
       }
     }
   }
