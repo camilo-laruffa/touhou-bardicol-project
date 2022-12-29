@@ -12,7 +12,7 @@ var w_index = 0
 func _ready():	
 	#Todavia estamos trabajando en stage/wave manager
 	var player = Player.instance()
-	wave = Wave[2].instance()
+	wave = Wave[0].instance()
 	wave_duration = wave.duration
 	add_child(player)
 	add_child(wave_timer)

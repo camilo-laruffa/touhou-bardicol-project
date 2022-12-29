@@ -116,6 +116,7 @@ func _circle_bullet(var type):
 	#Aca creo una bala cada x grados para armar un circulo
 	player_position = Vector2(0,0)
 	var direction = Vector2(0,1)
+	
 	for i in range(0, 360, ANGLE):
 		var bullet = BULLET.instance()
 		bullet.position = Vector2(position.x + cos(deg2rad(i))*RADIO,position.y + sin(deg2rad(i))*RADIO)
