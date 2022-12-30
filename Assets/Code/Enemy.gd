@@ -33,16 +33,13 @@ func _ready():
 	set_physics_process(true)
 	hp = HP
 	lives = LIVES
-	var SHOOT_CD = SHOOT_CANT / BULLET_CD
 	$Death_Timer.set_wait_time(TIME_ALIVE) 
-	$Shoot_Timer.set_wait_time(SHOOT_CD) 
 	$Bullet_Timer.set_wait_time(BULLET_CD) 
 	$Wait_Timer.set_wait_time(WAIT_CD)
 	$Wait_Timer.start()
 	$Death_Timer.start()
 	$Sprite.frame = ENEMY_FRAME
 	self.add_to_group("enemies")
-	if SHOOT_CD == 0 : can_shoot = true
 	
 func _physics_process(delta):
 	_movement()
@@ -50,7 +47,6 @@ func _physics_process(delta):
 	if position.y > 720 : queue_free()
 	
 func _on_Wait_Timer_timeout():
-	$Shoot_Timer.start()
 	$Bullet_Timer.start()
 	can_shoot = true
 
@@ -61,11 +57,6 @@ func _on_Bullet_Timer_timeout():
 	
 func _on_Death_Timer_timeout():
 	queue_free()
-
-func _on_Shoot_Timer_timeout():
-	if can_shoot : $Bullet_Timer.start()
-	can_shoot = !can_shoot
-	$Shoot_Timer.start()
 
 func _movement():
 	move_and_slide(Vector2(direccion_horizontal,direccion_vertical).normalized() * SPEED) #Moverse !!

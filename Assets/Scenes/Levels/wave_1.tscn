@@ -5,7 +5,7 @@
 
 [node name="Node2D2" type="Node2D"]
 script = ExtResource( 2 )
-duration = 7.0
+duration = 4.0
 
 [node name="Enemy" parent="." instance=ExtResource( 1 )]
 position = Vector2( -44, 48 )
@@ -16,7 +16,6 @@ BULLET_CD = 2.0
 SPEED = 80.0
 ANGLE = 10
 SHOOT_CANT = 4
-BULLET_FRAME = 11
 SHOOT_TYPE = "CIRCLE EXPLOSION"
 RADIO = 0.0
 
@@ -29,7 +28,6 @@ BULLET_CD = 2.0
 SPEED = 80.0
 ANGLE = 10
 SHOOT_CANT = 4
-BULLET_FRAME = 11
 SHOOT_TYPE = "CIRCLE EXPLOSION"
 RADIO = 0.0
 
@@ -42,7 +40,6 @@ BULLET_CD = 2.0
 SPEED = 80.0
 ANGLE = 10
 SHOOT_CANT = 4
-BULLET_FRAME = 11
 SHOOT_TYPE = "CIRCLE EXPLOSION"
 RADIO = 0.0
 direccion_horizontal = -1
@@ -56,7 +53,6 @@ BULLET_CD = 2.0
 SPEED = 80.0
 ANGLE = 10
 SHOOT_CANT = 4
-BULLET_FRAME = 11
 SHOOT_TYPE = "CIRCLE EXPLOSION"
 RADIO = 0.0
 direccion_horizontal = -1

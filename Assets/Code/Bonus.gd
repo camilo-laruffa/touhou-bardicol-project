@@ -27,12 +27,11 @@ func init(var type: String, var points: int, var go_to_player: bool):
 	Go_to_player = go_to_player
 
 func _ready():
-	set_physics_process(true)
 	SPRITE.frame = frame
 	self.add_to_group("bonus")
 	pass
 		
-func _physics_process(delta):
+func _process(delta):
 	_chequear_despawn()
 	direction = Vector2(0,1)
 	if !timer.is_stopped() :
@@ -40,7 +39,7 @@ func _physics_process(delta):
 	if Go_to_player:
 		var player_position = get_tree().get_nodes_in_group("player")[0].position
 		direction = position.direction_to(player_position)
-		speed = 400
+		speed = 600
 		look_at(player_position)
 		rotation -= PI/2
 	move_and_slide(direction * speed)

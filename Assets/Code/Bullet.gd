@@ -49,7 +49,7 @@ func _destruir():
 	queue_free()
 	
 func _chequear_despawn():	
-	if position.x > 900 || position.x < 20:
+	if position.x > 900 || position.x < -100:
 		queue_free()
 	if position.y > 720 || position.y < 0:
 		queue_free()

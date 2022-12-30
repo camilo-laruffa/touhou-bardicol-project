@@ -23,27 +23,15 @@ func _ready():
 	self.add_to_group("player")
 	
 func _physics_process(delta):
-	print("                                                                       ")
-	print("                                                                       ")
-	print("                                                                       ")
-	print("                                                                       ")
-	print("                                                                       ")
-	print("                                                                       ")
-	print("                                                                       ")
-	print("                                                                       ")
-	print("                                                                       ")
+	if $Sprite.rotation_degrees < 0: $Sprite.rotation_degrees += 20 * delta
+	if $Sprite.rotation_degrees > 0: $Sprite.rotation_degrees -= 20 * delta
 	$Hitbox.set_visible(Visible)	
 	_manage_input(delta)
 	velocity = move_and_slide(velocity)
 	if position.y <  200:
 		var bonuses = get_tree().get_nodes_in_group("bonus")
 		for bonus in bonuses:
-			bonus.Go_to_player = true	
-	print("Power: ",POWER)
-	print("Bombs: ",BOMBS)
-	print("Lives: ",LIVES)
-	print("Score: ",SCORE)
-	
+			bonus.Go_to_player = true		
 
 #Controla el input
 func _manage_input(delta):
@@ -119,4 +107,8 @@ func _manage_catch(var bonus):
 			BOMBS += 1
 		"EXTEND":
 			LIVES += 1
+	print("Power: ",POWER)
+	print("Bombs: ",BOMBS)
+	print("Lives: ",LIVES)
+	print("Score: ",SCORE)
 	SCORE += bonus.POINTS

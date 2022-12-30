@@ -5,14 +5,14 @@
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
-duration = 4.0
+duration = 1.0
 
 [node name="Big_Enemy" parent="." instance=ExtResource( 1 )]
 position = Vector2( 430, -38 )
 scale = Vector2( 1.5, 1.5 )
 HP = 100.0
 BULLET_DURATION = 7.0
-BULLET_CD = 1.0
+BULLET_CD = 0.7
 SPEED = 50.0
 BULLET_SPEED = 250.0
 TIME_ALIVE = 30.0

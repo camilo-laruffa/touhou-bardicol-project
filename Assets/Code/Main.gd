@@ -12,29 +12,23 @@ var w_index = 0
 func _ready():	
 	#Todavia estamos trabajando en stage/wave manager
 	var player = Player.instance()
-	wave = Wave[2].instance()
-	wave_duration = wave.duration
 	add_child(player)
-	add_child(wave_timer)
-	wave_timer.set_wait_time(wave_duration)
+	wave_timer.set_wait_time(0)
 	wave_timer.set_one_shot(true)
-	wave_timer.start()
+	add_child(wave_timer)
 	player.position = Vector2(300,530)
-	add_child(wave)
-
 
 func _process(delta):
-	if wave_timer.is_stopped():
-		if Wave.size() > w_index : 
+	if w_index >= Wave.size() : w_index = 0
+	if wave_timer.is_stopped() :
+		print(w_index)
+		if w_index < Wave.size():
 			_next_wave()
 			wave_timer.set_wait_time(wave_duration)
 			wave_timer.start()
 
 func _next_wave():
+	wave = Wave[w_index].instance()
+	wave_duration = wave.duration
+	call_deferred("add_child",wave)
 	w_index += 1
-	if Wave.size() > w_index : 
-		print("Instancing new Wave..")
-		wave = Wave[w_index].instance()
-		wave_duration = wave.duration
-		add_child(wave)
-
