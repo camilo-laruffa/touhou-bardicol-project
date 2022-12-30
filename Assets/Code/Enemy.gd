@@ -13,7 +13,8 @@ export(int) var LIVES: int = 3 # Cuantas vidas tiene el enemigo
 export(int) var ANGLE: int = 15 # Cada cuantos grados aparece una bala en el disparo circular
 export(int) var ENEMY_FRAME: int = 13 # Que frame del spritesheet usa para el sprite del enemigo
 export(int) var BULLET_FRAME: int = 8 # Que frame del spritesheet usa para el sprite de la bala
-export(String) var SHOOT_TYPE: String = "Circle Down" # Tipo de disparo (en la funcion te podes fijar cuales son)
+export(String,"AUTOAIM","CIRCLE DOWN","CIRCLE AIMBOT","CIRCLE EXPLOSION") var SHOOT_TYPE: String = "AUTOAIM" # Tipo de disparo (en la funcion te podes fijar cuales son)
+export(String,"POWER","POINT","BOMB","EXTEND") var DROP_TYPE: String = "POWER"
 export(float,1000) var RADIO: float = 3 # El radio en el que aparecen las balas en el disparo circular
 export(int,-1,1) var direccion_horizontal: int = 1 # Direccion horizontal del movimiento(-1 izq ,0, 1 derecha)
 export(int,-1,1) var direccion_vertical: int = 0 # Direccion vertical del movimiento(-1 arriba ,0, 1 abajo)
@@ -27,7 +28,6 @@ var player_position
 var can_shoot = false
 var bullets
 
-
 func _ready():
 	set_physics_process(true)
 	hp = HP
@@ -37,27 +37,24 @@ func _ready():
 	$Bullet_Timer.set_wait_time(BULLET_CD) 
 	$Sprite.frame = ENEMY_FRAME
 	self.add_to_group("enemies")
+	if SHOOT_CD == 0 : can_shoot = true
 	
 func _physics_process(delta):
 	_movement()
-	if SHOOT_CD == 0 :
-		can_shoot = true
 
 func _on_Bullet_Timer_timeout():
-	$Bullet_Timer.start()
-	
-	if !can_shoot : return
-	
+	$Bullet_Timer.start()	
+	if !can_shoot : return	
 	_shoot(SHOOT_TYPE)
 	
 func _on_Death_Timer_timeout():
 	queue_free()
 
-
 func _on_Shoot_Timer_timeout():
+	if can_shoot : $Bullet_Timer.start()
+	if SHOOT_CD == 0 : return
 	can_shoot = !can_shoot
 	$Shoot_Timer.start()
-	if can_shoot : $Bullet_Timer.start()
 
 func _movement():
 	move_and_slide(Vector2(direccion_horizontal,direccion_vertical).normalized() * SPEED) #Moverse !!
@@ -80,7 +77,7 @@ func _recieve_damage(damage):
 		queue_free() 
 
 func _shoot(var type: String):
-	type = type.to_upper() # Aca hace que todo sea mayusculas para que no haya problem	
+	type = type.to_upper()
 	match type:
 		"CIRCLE EXPLOSION":
 			_circle_bullet(1)
