@@ -3,7 +3,7 @@ extends KinematicBody2D
 #Usamos un timer para que cuando pasan los segundos se destruya la bala 
 var timer = Timer.new()
 onready var SPRITE = get_node("Sprite")
-var damage = 3
+var damage = 10
 var Modulate
 var Self_modulate
 var Frame = 5
@@ -32,6 +32,7 @@ func _ready():
 		rotation -= PI/2
 	else: 
 		get_node("AudioStreamPlayer").volume_db = -60
+		damage = get_tree().get_nodes_in_group("player")[0].POWER
 	SPRITE.frame = Frame
 	add_child(timer)
 	timer.set_wait_time(Bullet_duration)
@@ -54,5 +55,6 @@ func _chequear_despawn():
 		queue_free()
 
 func _on_Hitbox_area_entered(area):
-	
+	if Player_bullet && area.name.to_upper() == "HURTBOX_ENEMY" :
+		queue_free()		
 	pass

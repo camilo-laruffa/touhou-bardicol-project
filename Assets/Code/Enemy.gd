@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 # Export hace que las variables se puedan cambiar en el Inspector, 
 # eso nos deja customizar cada prefab por separado
-export(float) var HP: float = 100 #La vida del enemigo
+export(float) var HP: float = 1 #La vida del enemigo
 export(float,20) var SHOOT_CD: float = 1 # Cada cuanto dispara(espera x tiempo, dispara x tiempo, espera x tiempo)
 export(float,20) var BULLET_DURATION: float = 1 # Cuanto dura una bala antes de desaparecer
 export(float,20) var BULLET_CD: float = 0.3 # Una vez puede disparar, cada cuanto puede salir 1 disparo
@@ -70,10 +70,11 @@ func _movement():
 	move_and_slide(Vector2(direccion_horizontal,direccion_vertical).normalized() * SPEED) #Moverse !!
 		
 func _on_HurtBox_area_entered(hitbox):
-	if hitbox.name == "Hitbox_Bullet" && hitbox.player_bullet :
-		_recieve_damage(hitbox.damage)
+	if hitbox.name == "Hitbox_Bullet" && hitbox.get_parent().Player_bullet :
+		_recieve_damage(get_tree().get_nodes_in_group("player")[0].POWER)
 
 func _recieve_damage(damage):
+	print(damage)
 	hp -= damage
 	if (hp <= 0): 
 		lives -= 1
@@ -87,7 +88,6 @@ func _recieve_damage(damage):
 
 func _shoot(var type: String):
 	type = type.to_upper() # Aca hace que todo sea mayusculas para que no haya problem	
-	print("Instancing Shoot..")
 	match type:
 		"CIRCLE EXPLOSION":
 			_circle_bullet(1)

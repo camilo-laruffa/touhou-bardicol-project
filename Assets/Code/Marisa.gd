@@ -6,11 +6,13 @@ onready var sprite = get_node("Sprite")
 onready var hitbox = get_node("Sprite/Hitbox")
 onready var sound = get_node("AudioStreamPlayer")
 export(float) var SPEED: float = 300
+var POWER = 1
+var BOMBS = 2
+var LIVES = 3
+var SCORE = 0
 var velocity = Vector2()
 var speed
 const CD = 0.1
-var lives = 3
-var score = 0
 var can_Shoot = true
 var Visible = false
 var timer = Timer.new() #Este timer es el del disparo
@@ -49,7 +51,8 @@ func _manage_input(delta):
 	if Input.is_action_pressed("down") && position.y < 680: velocity.y += 1
 	velocity = velocity.normalized() * speed 
 	
-	if Input.is_action_just_pressed("bomb") : 
+	if Input.is_action_just_pressed("bomb") && BOMBS > 0: 
+		BOMBS -= 1
 		_bomb()
 	
 #Crea una instancia de bala, la mete a la escena y despues le setea la posicion inicial arriba del jugador
@@ -58,7 +61,6 @@ func _shoot():
 	#Los valores de las balas del jugador no son customizables sin cambiar el codigo
 	bullet.init(true,3,Vector2(0,-16),100,1)
 	get_parent().add_child(bullet)
-	bullet.get_node("Hitbox_Bullet").player_bullet = true
 	bullet.global_position = Vector2(get_node("Sprite").global_position.x, get_node("Sprite").global_position.y - 60)
 	bullet.damage = 3
 	can_Shoot = false
@@ -84,11 +86,25 @@ func _bomb():
 
 func _on_Hurtbox_area_entered(area):
 	if area.name == "Player_catch" :
-		print(area.get_parent().POINTS)
+		_manage_catch(area.get_parent())
+		print("Power: ",POWER)
+		print("Bombs: ",BOMBS)
+		print("Lives: ",LIVES)
+		print("Score: ",SCORE)
 		area.get_parent().queue_free()
 	if area.name == "Hitbox_Bonus" :
 		area.get_parent().Go_to_player = true
 	if area.name == "Hitbox_Bullet" :
 		sound.play()
-		lives -= 1
+		LIVES -= 1
 	
+func _manage_catch(var bonus):
+	var type = bonus.TYPE
+	match type:
+		"POWER":
+			POWER += 0.25
+		"BOMB":
+			BOMBS += 1
+		"EXTEND":
+			LIVES += 1
+	SCORE += bonus.POINTS

@@ -7,6 +7,7 @@ var direction = Vector2(0,1)
 var Go_to_player = false
 var speed = 50
 var POINTS = 1
+var TYPE 
 
 func init(var type: String, var points: int, var go_to_player: bool):
 	type = type.to_upper()
@@ -21,6 +22,7 @@ func init(var type: String, var points: int, var go_to_player: bool):
 			frame = 19
 		"CLEAR":
 			frame = 20
+	TYPE = type
 	POINTS = points
 	Go_to_player = go_to_player
 

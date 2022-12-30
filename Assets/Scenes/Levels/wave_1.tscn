@@ -9,7 +9,7 @@ duration = 7.0
 
 [node name="Enemy" parent="." instance=ExtResource( 1 )]
 position = Vector2( -44, 48 )
-HP = 10.0
+HP = 1.0
 SHOOT_CD = 2.0
 BULLET_DURATION = 7.0
 BULLET_CD = 1.0
@@ -21,7 +21,7 @@ RADIO = 0.0
 
 [node name="Enemy4" parent="." instance=ExtResource( 1 )]
 position = Vector2( -215, 48 )
-HP = 10.0
+HP = 1.0
 SHOOT_CD = 2.0
 BULLET_DURATION = 7.0
 BULLET_CD = 1.0
@@ -33,7 +33,7 @@ RADIO = 0.0
 
 [node name="Enemy5" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1075, 48 )
-HP = 10.0
+HP = 1.0
 SHOOT_CD = 2.0
 BULLET_DURATION = 7.0
 BULLET_CD = 1.0
@@ -46,7 +46,7 @@ direccion_horizontal = -1
 
 [node name="Enemy8" parent="." instance=ExtResource( 1 )]
 position = Vector2( 904, 48 )
-HP = 10.0
+HP = 1.0
 SHOOT_CD = 2.0
 BULLET_DURATION = 7.0
 BULLET_CD = 1.0
@@ -59,7 +59,7 @@ direccion_horizontal = -1
 
 [node name="Enemy9" parent="." instance=ExtResource( 1 )]
 position = Vector2( 90, -52 )
-HP = 10.0
+HP = 1.0
 SHOOT_CD = 2.0
 BULLET_DURATION = 2.15
 BULLET_CD = 0.4
@@ -73,7 +73,7 @@ direccion_vertical = 1
 
 [node name="Enemy10" parent="." instance=ExtResource( 1 )]
 position = Vector2( 90, -144 )
-HP = 10.0
+HP = 1.0
 SHOOT_CD = 2.0
 BULLET_DURATION = 2.15
 BULLET_CD = 0.4
@@ -87,7 +87,7 @@ direccion_vertical = 1
 
 [node name="Enemy11" parent="." instance=ExtResource( 1 )]
 position = Vector2( 90, -229 )
-HP = 10.0
+HP = 1.0
 SHOOT_CD = 2.0
 BULLET_DURATION = 2.15
 BULLET_CD = 0.4
@@ -101,7 +101,7 @@ direccion_vertical = 1
 
 [node name="Enemy12" parent="." instance=ExtResource( 1 )]
 position = Vector2( 770, -52 )
-HP = 10.0
+HP = 1.0
 SHOOT_CD = 2.0
 BULLET_DURATION = 2.15
 BULLET_CD = 0.4
@@ -115,7 +115,7 @@ direccion_vertical = 1
 
 [node name="Enemy13" parent="." instance=ExtResource( 1 )]
 position = Vector2( 770, -144 )
-HP = 10.0
+HP = 1.0
 SHOOT_CD = 2.0
 BULLET_DURATION = 2.15
 BULLET_CD = 0.4
@@ -129,7 +129,7 @@ direccion_vertical = 1
 
 [node name="Enemy14" parent="." instance=ExtResource( 1 )]
 position = Vector2( 770, -229 )
-HP = 10.0
+HP = 1.0
 SHOOT_CD = 2.0
 BULLET_DURATION = 2.15
 BULLET_CD = 0.4
