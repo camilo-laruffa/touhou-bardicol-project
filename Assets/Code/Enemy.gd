@@ -38,6 +38,8 @@ func _ready():
 	$Shoot_Timer.set_wait_time(SHOOT_CD) 
 	$Bullet_Timer.set_wait_time(BULLET_CD) 
 	$Wait_Timer.set_wait_time(WAIT_CD)
+	$Wait_Timer.start()
+	$Death_Timer.start()
 	$Sprite.frame = ENEMY_FRAME
 	self.add_to_group("enemies")
 	if SHOOT_CD == 0 : can_shoot = true

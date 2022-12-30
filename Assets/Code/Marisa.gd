@@ -23,13 +23,26 @@ func _ready():
 	self.add_to_group("player")
 	
 func _physics_process(delta):
+	print("                                                                       ")
+	print("                                                                       ")
+	print("                                                                       ")
+	print("                                                                       ")
+	print("                                                                       ")
+	print("                                                                       ")
+	print("                                                                       ")
+	print("                                                                       ")
+	print("                                                                       ")
 	$Hitbox.set_visible(Visible)	
 	_manage_input(delta)
 	velocity = move_and_slide(velocity)
 	if position.y <  200:
 		var bonuses = get_tree().get_nodes_in_group("bonus")
 		for bonus in bonuses:
-			bonus.Go_to_player = true
+			bonus.Go_to_player = true	
+	print("Power: ",POWER)
+	print("Bombs: ",BOMBS)
+	print("Lives: ",LIVES)
+	print("Score: ",SCORE)
 	
 
 #Controla el input
@@ -90,10 +103,6 @@ func _on_Hurtbox_area_entered(area):
 	var name = area.name.to_upper()
 	if name == "PLAYER_CATCH" :
 		_manage_catch(area.get_parent())
-		print("Power: ",POWER)
-		print("Bombs: ",BOMBS)
-		print("Lives: ",LIVES)
-		print("Score: ",SCORE)
 		area.get_parent().queue_free()
 	if name == "HITBOX_BONUS" :
 		area.get_parent().Go_to_player = true
