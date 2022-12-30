@@ -32,7 +32,7 @@ collision_mask = 24
 position = Vector2( -1, 2 )
 shape = SubResource( 1 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 volume_db = -33.178
 mix_target = 2

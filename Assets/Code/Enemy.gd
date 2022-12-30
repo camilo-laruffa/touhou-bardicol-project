@@ -17,54 +17,47 @@ export(String) var SHOOT_TYPE: String = "Circle Down" # Tipo de disparo (en la f
 export(float,1000) var RADIO: float = 3 # El radio en el que aparecen las balas en el disparo circular
 export(int,-1,1) var direccion_horizontal: int = 1 # Direccion horizontal del movimiento(-1 izq ,0, 1 derecha)
 export(int,-1,1) var direccion_vertical: int = 0 # Direccion vertical del movimiento(-1 arriba ,0, 1 abajo)
-onready var SPRITE_SHEET = preload("res://Assets/Sprites/marisa_spritesheet.png") # Precarga la spritesheet
-onready var sprite = get_node("Sprite") # Obtiene el sprite para editarlo
 onready var BULLET = preload("res://Assets/Scenes/Prefabs/Bullet.tscn") # Precarga la bala
 onready var BONUS = preload("res://Assets/Scenes/Prefabs/Bonus.tscn") # Precarga el bonus
 # Estas variables son para no alterar los valores iniciales de las mismas
 var bullet 
 var lives
 var hp
-var shoot_timer = Timer.new()
-var bullet_timer = Timer.new()
-var death_timer = Timer.new()
-var player_position
-var velocity
-var can_shoot = true
+var player_position 
+var can_shoot = false
 var bullets
 
 
 func _ready():
-	randomize()
-	add_child(shoot_timer) #Añadimos un timer
-	add_child(bullet_timer)
-	add_child(death_timer)
-	shoot_timer.set_one_shot(true) #Le decimos que empiece de una
-	bullet_timer.set_one_shot(true)
-	death_timer.set_one_shot(true)
-	death_timer.set_wait_time(TIME_ALIVE) #Le decimos cuanto dura
-	shoot_timer.set_wait_time(SHOOT_CD) 
-	bullet_timer.set_wait_time(BULLET_CD) 
 	set_physics_process(true)
-	sprite.frame = ENEMY_FRAME
 	hp = HP
 	lives = LIVES
-	death_timer.start()
+	$Death_Timer.set_wait_time(TIME_ALIVE) #Le decimos cuanto dura
+	$Shoot_Timer.set_wait_time(SHOOT_CD) 
+	$Bullet_Timer.set_wait_time(BULLET_CD) 
+	$Sprite.frame = ENEMY_FRAME
 	self.add_to_group("enemies")
 	
 func _physics_process(delta):
-	if death_timer.is_stopped(): queue_free() # Cuando se acaba el tiempo, muere
 	_movement()
-	if SHOOT_CD != 0 :
-		if shoot_timer.is_stopped() :
-			can_shoot = !can_shoot
-			shoot_timer.start()
-	else:
+	if SHOOT_CD == 0 :
 		can_shoot = true
-	if can_shoot:
-		if bullet_timer.is_stopped() : # Si puede disparar y paso x tiempo desde la ultima bala, puede disparar otra
-			_shoot(SHOOT_TYPE)
-			bullet_timer.start()
+
+func _on_Bullet_Timer_timeout():
+	$Bullet_Timer.start()
+	
+	if !can_shoot : return
+	
+	_shoot(SHOOT_TYPE)
+	
+func _on_Death_Timer_timeout():
+	queue_free()
+
+
+func _on_Shoot_Timer_timeout():
+	can_shoot = !can_shoot
+	$Shoot_Timer.start()
+	if can_shoot : $Bullet_Timer.start()
 
 func _movement():
 	move_and_slide(Vector2(direccion_horizontal,direccion_vertical).normalized() * SPEED) #Moverse !!
@@ -105,8 +98,8 @@ func _autoaim():
 	#Enviamos una bala hacia la posicion del jugador
 	var bullet = BULLET.instance()
 	player_position = Vector2(0,0)
-	if(is_instance_valid(get_node("../../Player"))): # Aveces se bugea, asi que primero nos fijamos que exista el jugador y dsp obtenemos donde esta
-		player_position = get_node("../../Player").position
+	if(is_instance_valid($"../../Player")): # Aveces se bugea, asi que primero nos fijamos que exista el jugador y dsp obtenemos donde esta
+		player_position = $"../../Player".position
 	var direction = position.direction_to(player_position)
 	
 	bullet.init(false,BULLET_FRAME,direction,BULLET_SPEED,BULLET_DURATION) # Iniciamos la bala con todo lo necesario
@@ -126,8 +119,8 @@ func _circle_bullet(var type):
 		
 		if (type == 1): 
 			direction = Vector2(cos(deg2rad(i)),sin(deg2rad(i)))
-		if type == 2 && is_instance_valid(get_node("../../Player")): 
-			player_position = get_node("../../Player").position
+		if type == 2 && is_instance_valid($"../../Player"): 
+			player_position = $"../../Player".position
 			direction =  bullet.position.direction_to(player_position)			
 		
 		bullet.init(false,BULLET_FRAME,direction,BULLET_SPEED,BULLET_DURATION)
@@ -135,4 +128,5 @@ func _circle_bullet(var type):
 		bullet.get_node("AudioStreamPlayer").volume_db = -62
 		bullet.add_to_group("bullets")
 	pass
+
 

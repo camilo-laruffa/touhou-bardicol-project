@@ -2,9 +2,6 @@ extends KinematicBody2D
 
 onready var BULLET = preload("res://Assets/Scenes/Prefabs/Bullet.tscn")
 onready var BONUS = preload("res://Assets/Scenes/Prefabs/Bonus.tscn")
-onready var sprite = get_node("Sprite")
-onready var hitbox = get_node("Sprite/Hitbox")
-onready var sound = get_node("AudioStreamPlayer")
 export(float) var SPEED: float = 300
 var POWER = 1
 var BOMBS = 2
@@ -39,7 +36,7 @@ func _manage_input(delta):
 	velocity = Vector2()
 	speed = SPEED/2.5 if (Input.is_action_pressed("shift")) else SPEED #Esto no es lo más optimo pero queria probarlo jasja
 	Visible = true if (Input.is_action_pressed("shift")) else false
-	get_node("Sprite/Hitbox").set_visible(Visible)	
+	$Sprite/Hitbox.set_visible(Visible)	
 	
 	if Input.is_action_pressed("shoot" ) && can_Shoot: 
 		_shoot()
@@ -96,7 +93,7 @@ func _on_Hurtbox_area_entered(area):
 	if name == "HITBOX_BONUS" :
 		area.get_parent().Go_to_player = true
 	if name == "HITBOX_BULLET" || name == "HURTBOX_ENEMY":
-		sound.play()
+		$Sound.play()
 		LIVES -= 1
 	
 func _manage_catch(var bonus):
