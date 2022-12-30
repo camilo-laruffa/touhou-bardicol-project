@@ -42,10 +42,16 @@ func _ready():
 #BALA SUBE VELOCIDAD RAPIDO SII
 func _process(delta):
 	move_and_slide(Direction * speed)
+	_chequear_despawn()
 	
 func _destruir():
 	queue_free()
-
+	
+func _chequear_despawn():	
+	if position.x > 900 || position.x < 20:
+		queue_free()
+	if position.y > 720 || position.y < 0:
+		queue_free()
 
 func _on_Hitbox_area_entered(area):
 	

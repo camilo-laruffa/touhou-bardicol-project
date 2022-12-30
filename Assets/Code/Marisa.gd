@@ -10,6 +10,7 @@ var velocity = Vector2()
 var speed
 const CD = 0.1
 var lives = 3
+var score = 0
 var can_Shoot = true
 var Visible = false
 var timer = Timer.new() #Este timer es el del disparo
@@ -72,7 +73,7 @@ func _bomb():
 	for bala in balas:#Busca el grupo balas y enemigos y los PUTO MATA CHAVAL
 		var bonus = BONUS.instance()
 		bonus.position = bala.position
-		bonus.init("CLEAR",10,true)
+		bonus.init("CLEAR",10000,true)
 		bonus.scale = Vector2(2,2)
 		get_parent().call_deferred("add_child", bonus)			
 		bala.queue_free() 			
@@ -82,9 +83,12 @@ func _bomb():
 		bonus.Go_to_player = true
 
 func _on_Hurtbox_area_entered(area):
-	if area.name == "Hitbox_Bonus" : 
+	if area.name == "Player_catch" :
+		print(area.get_parent().POINTS)
 		area.get_parent().queue_free()
-		return	
-	sound.play()
-	lives -= 1
+	if area.name == "Hitbox_Bonus" :
+		area.get_parent().Go_to_player = true
+	if area.name == "Hitbox_Bullet" :
+		sound.play()
+		lives -= 1
 	

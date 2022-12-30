@@ -27,7 +27,7 @@ texture = ExtResource( 2 )
 
 [node name="Hurtbox_Player" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 8
+collision_mask = 24
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox_Player"]
@@ -36,7 +36,7 @@ shape = SubResource( 1 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
-volume_db = -10.847
+volume_db = -33.178
 mix_target = 2
 
 [connection signal="area_entered" from="Hurtbox_Player" to="." method="_on_Hurtbox_area_entered"]
