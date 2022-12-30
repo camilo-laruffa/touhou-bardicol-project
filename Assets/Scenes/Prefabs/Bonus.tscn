@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/Code/Bonus.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/marisa_spritesheet.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 27, 24.5 )
 
 [node name="Bonus" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -11,4 +14,11 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 hframes = 6
 vframes = 4
-frame = 17
+frame = 18
+
+[node name="Hitbox_Bonus" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox_Bonus"]
+shape = SubResource( 1 )

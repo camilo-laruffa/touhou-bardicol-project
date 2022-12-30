@@ -21,12 +21,12 @@ ANGLE = 20
 SHOOT_TYPE = "Circle aimbot"
 RADIO = 129.324
 
-[node name="HurtBox" type="Area2D" parent="."]
+[node name="Hurtbox_Enemy" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 8
 script = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox_Enemy"]
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -38,4 +38,4 @@ frame = 13
 
 [node name="Shooting_Point" type="Node2D" parent="."]
 
-[connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+[connection signal="area_entered" from="Hurtbox_Enemy" to="." method="_on_HurtBox_area_entered"]

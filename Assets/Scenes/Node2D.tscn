@@ -44,13 +44,12 @@ position = Vector2( 449, -84 )
 position = Vector2( 555, -23 )
 
 [node name="Bonus" parent="." instance=ExtResource( 3 )]
-position = Vector2( 366, 388 )
+position = Vector2( 271, 44 )
 frame = 18
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 volume_db = -10.0
-autoplay = true
 mix_target = 2
 
 [editable path="Bonus"]

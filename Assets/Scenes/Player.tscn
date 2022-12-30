@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Sprites/marisa_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Sprites/hitbox.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Code/HurtBox.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Code/Marisa.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Sounds/miss.mp3" type="AudioStream" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 3.0
@@ -24,11 +25,18 @@ position = Vector2( 0, 1 )
 scale = Vector2( 0.759995, 0.759995 )
 texture = ExtResource( 2 )
 
-[node name="Hurtbox" type="Area2D" parent="."]
+[node name="Hurtbox_Player" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 8
 script = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox_Player"]
 position = Vector2( -1, 2 )
 shape = SubResource( 1 )
 
-[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.847
+mix_target = 2
+
+[connection signal="area_entered" from="Hurtbox_Player" to="." method="_on_Hurtbox_area_entered"]

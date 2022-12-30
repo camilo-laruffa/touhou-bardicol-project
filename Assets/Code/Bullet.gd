@@ -8,7 +8,7 @@ var Modulate
 var Self_modulate
 var Frame = 5
 var Player_bullet = true
-var velocity = Vector2(0,1)
+var Direction = Vector2(0,1)
 var speed = 100
 var Bullet_duration
 
@@ -18,7 +18,7 @@ func init(var player_bullet: bool, var type: int, var direction: Vector2, var b_
 		Modulate = Color(1,1,1)
 		Self_modulate = Color(1,1,1)
 	Frame = type
-	velocity = direction
+	Direction = direction
 	Player_bullet = player_bullet
 	speed = b_speed
 	Bullet_duration = bullet_duration
@@ -30,7 +30,6 @@ func _ready():
 		SPRITE.modulate = Modulate
 		look_at(get_node("../../Player").global_position)
 		rotation -= PI/2
-		#Esto solo lo gira "bien" de un lado
 	else: 
 		get_node("AudioStreamPlayer").volume_db = -60
 	SPRITE.frame = Frame
@@ -42,13 +41,12 @@ func _ready():
 
 #BALA SUBE VELOCIDAD RAPIDO SII
 func _process(delta):
-	move_and_slide(velocity * speed)
+	move_and_slide(Direction * speed)
 	
 func _destruir():
 	queue_free()
 
 
 func _on_Hitbox_area_entered(area):
-		#Hace que las balas sepan si las disparo un enemigo o el jugador y depende de ello si le hace daño
-		#al jugador o al enemigo
+	
 	pass

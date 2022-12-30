@@ -8,9 +8,11 @@ script = ExtResource( 2 )
 duration = 5.0
 
 [node name="Enemy_A" parent="." instance=ExtResource( 1 )]
-position = Vector2( 90, -33 )
+position = Vector2( 90, -139 )
 HP = 10.0
+SHOOT_CD = 2.0
 BULLET_DURATION = 2.0
+BULLET_CD = 0.5
 SPEED = 250.0
 BULLET_SPEED = 400.0
 TIME_ALIVE = 4.5
@@ -21,9 +23,11 @@ direccion_horizontal = 0
 direccion_vertical = 1
 
 [node name="Enemy_A2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 90, -87 )
+position = Vector2( 90, -193 )
 HP = 10.0
+SHOOT_CD = 2.0
 BULLET_DURATION = 2.0
+BULLET_CD = 0.5
 SPEED = 250.0
 BULLET_SPEED = 400.0
 TIME_ALIVE = 4.5
@@ -34,9 +38,11 @@ direccion_horizontal = 0
 direccion_vertical = 1
 
 [node name="Enemy_A3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 90, -141 )
+position = Vector2( 90, -247 )
 HP = 10.0
+SHOOT_CD = 2.0
 BULLET_DURATION = 2.0
+BULLET_CD = 0.5
 SPEED = 250.0
 BULLET_SPEED = 400.0
 TIME_ALIVE = 4.5
@@ -47,9 +53,11 @@ direccion_horizontal = 0
 direccion_vertical = 1
 
 [node name="Enemy_A4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 90, -195 )
+position = Vector2( 90, -301 )
 HP = 10.0
+SHOOT_CD = 2.0
 BULLET_DURATION = 2.0
+BULLET_CD = 0.5
 SPEED = 250.0
 BULLET_SPEED = 400.0
 TIME_ALIVE = 4.5
@@ -60,9 +68,11 @@ direccion_horizontal = 0
 direccion_vertical = 1
 
 [node name="Enemy_A5" parent="." instance=ExtResource( 1 )]
-position = Vector2( 90, -247 )
+position = Vector2( 90, -353 )
 HP = 10.0
+SHOOT_CD = 2.0
 BULLET_DURATION = 2.0
+BULLET_CD = 0.5
 SPEED = 250.0
 BULLET_SPEED = 400.0
 TIME_ALIVE = 4.5
@@ -73,9 +83,11 @@ direccion_horizontal = 0
 direccion_vertical = 1
 
 [node name="Enemy_A6" parent="." instance=ExtResource( 1 )]
-position = Vector2( 90, -301 )
+position = Vector2( 90, -407 )
 HP = 10.0
+SHOOT_CD = 2.0
 BULLET_DURATION = 2.0
+BULLET_CD = 0.5
 SPEED = 250.0
 BULLET_SPEED = 400.0
 TIME_ALIVE = 4.5
@@ -86,9 +98,11 @@ direccion_horizontal = 0
 direccion_vertical = 1
 
 [node name="Enemy_A7" parent="." instance=ExtResource( 1 )]
-position = Vector2( 770, -33 )
+position = Vector2( 770, -139 )
 HP = 10.0
+SHOOT_CD = 2.0
 BULLET_DURATION = 2.0
+BULLET_CD = 0.5
 SPEED = 250.0
 BULLET_SPEED = 400.0
 TIME_ALIVE = 4.5
@@ -99,9 +113,11 @@ direccion_horizontal = 0
 direccion_vertical = 1
 
 [node name="Enemy_A8" parent="." instance=ExtResource( 1 )]
-position = Vector2( 770, -87 )
+position = Vector2( 770, -193 )
 HP = 10.0
+SHOOT_CD = 2.0
 BULLET_DURATION = 2.0
+BULLET_CD = 0.5
 SPEED = 250.0
 BULLET_SPEED = 400.0
 TIME_ALIVE = 4.5
@@ -112,9 +128,11 @@ direccion_horizontal = 0
 direccion_vertical = 1
 
 [node name="Enemy_A9" parent="." instance=ExtResource( 1 )]
-position = Vector2( 770, -141 )
+position = Vector2( 770, -247 )
 HP = 10.0
+SHOOT_CD = 2.0
 BULLET_DURATION = 2.0
+BULLET_CD = 0.5
 SPEED = 250.0
 BULLET_SPEED = 400.0
 TIME_ALIVE = 4.5
@@ -125,9 +143,11 @@ direccion_horizontal = 0
 direccion_vertical = 1
 
 [node name="Enemy_A10" parent="." instance=ExtResource( 1 )]
-position = Vector2( 770, -195 )
+position = Vector2( 770, -301 )
 HP = 10.0
+SHOOT_CD = 2.0
 BULLET_DURATION = 2.0
+BULLET_CD = 0.5
 SPEED = 250.0
 BULLET_SPEED = 400.0
 TIME_ALIVE = 4.5
@@ -138,9 +158,11 @@ direccion_horizontal = 0
 direccion_vertical = 1
 
 [node name="Enemy_A11" parent="." instance=ExtResource( 1 )]
-position = Vector2( 770, -247 )
+position = Vector2( 770, -353 )
 HP = 10.0
+SHOOT_CD = 2.0
 BULLET_DURATION = 2.0
+BULLET_CD = 0.5
 SPEED = 250.0
 BULLET_SPEED = 400.0
 TIME_ALIVE = 4.5
@@ -151,9 +173,11 @@ direccion_horizontal = 0
 direccion_vertical = 1
 
 [node name="Enemy_A12" parent="." instance=ExtResource( 1 )]
-position = Vector2( 770, -301 )
+position = Vector2( 770, -407 )
 HP = 10.0
+SHOOT_CD = 2.0
 BULLET_DURATION = 2.0
+BULLET_CD = 0.5
 SPEED = 250.0
 BULLET_SPEED = 400.0
 TIME_ALIVE = 4.5

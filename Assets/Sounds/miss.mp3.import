@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/miss.mp3-378d11b7e6e3bb36d5bc3114b6339445.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/miss.mp3"
+dest_files=[ "res://.import/miss.mp3-378d11b7e6e3bb36d5bc3114b6339445.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

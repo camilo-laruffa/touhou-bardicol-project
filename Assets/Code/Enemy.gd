@@ -31,6 +31,7 @@ var death_timer = Timer.new()
 var player_position
 var velocity
 var can_shoot = true
+var bullets
 
 
 func _ready():
@@ -49,6 +50,7 @@ func _ready():
 	hp = HP
 	lives = LIVES
 	death_timer.start()
+	self.add_to_group("enemies")
 	
 func _physics_process(delta):
 	if death_timer.is_stopped(): queue_free() # Cuando se acaba el tiempo, muere
@@ -68,7 +70,7 @@ func _movement():
 	move_and_slide(Vector2(direccion_horizontal,direccion_vertical).normalized() * SPEED) #Moverse !!
 		
 func _on_HurtBox_area_entered(hitbox):
-	if(hitbox.player_bullet):
+	if hitbox.name == "Hitbox_Bullet" && hitbox.player_bullet :
 		_recieve_damage(hitbox.damage)
 
 func _recieve_damage(damage):
@@ -78,7 +80,7 @@ func _recieve_damage(damage):
 		hp = HP
 	if (lives <= 0): 
 		var bonus = BONUS.instance()
-		bonus.init("POWER",1)
+		bonus.init("POWER",1,false)
 		bonus.position = position
 		get_parent().call_deferred("add_child", bonus)
 		queue_free() 
@@ -110,22 +112,27 @@ func _autoaim():
 	bullet.init(false,BULLET_FRAME,direction,BULLET_SPEED,BULLET_DURATION) # Iniciamos la bala con todo lo necesario
 	bullet.position = position
 	get_parent().call_deferred("add_child", bullet)
+	bullet.add_to_group("bullets")
 	pass
 	
 func _circle_bullet(var type):
 	#Aca creo una bala cada x grados para armar un circulo
 	player_position = Vector2(0,0)
 	var direction = Vector2(0,1)
-	
+	var j = 0
 	for i in range(0, 360, ANGLE):
 		var bullet = BULLET.instance()
 		bullet.position = Vector2(position.x + cos(deg2rad(i))*RADIO,position.y + sin(deg2rad(i))*RADIO)
+		
 		if (type == 1): 
 			direction = Vector2(cos(deg2rad(i)),sin(deg2rad(i)))
 		if type == 2 && is_instance_valid(get_node("../../Player")): 
 			player_position = get_node("../../Player").position
 			direction =  bullet.position.direction_to(player_position)			
+		
 		bullet.init(false,BULLET_FRAME,direction,BULLET_SPEED,BULLET_DURATION)
 		get_parent().call_deferred("add_child", bullet)
-		bullet.get_node("AudioStreamPlayer").volume_db = -52
+		bullet.get_node("AudioStreamPlayer").volume_db = -62
+		bullet.add_to_group("bullets")
 	pass
+
