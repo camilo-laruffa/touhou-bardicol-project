@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 onready var BULLET = preload("res://Assets/Scenes/Prefabs/Bullet.tscn")
 onready var BONUS = preload("res://Assets/Scenes/Prefabs/Bonus.tscn")
-export(float) var SPEED: float = 300
+export(float) var SPEED: float = 400
 var POWER = 1
 var BOMBS = 2
 var LIVES = 3
@@ -23,6 +23,7 @@ func _ready():
 	self.add_to_group("player")
 	
 func _physics_process(delta):
+	$Hitbox.set_visible(Visible)	
 	_manage_input(delta)
 	velocity = move_and_slide(velocity)
 	if position.y <  200:
@@ -36,16 +37,20 @@ func _manage_input(delta):
 	velocity = Vector2()
 	speed = SPEED/2.5 if (Input.is_action_pressed("shift")) else SPEED #Esto no es lo más optimo pero queria probarlo jasja
 	Visible = true if (Input.is_action_pressed("shift")) else false
-	$Sprite/Hitbox.set_visible(Visible)	
 	
 	if Input.is_action_pressed("shoot" ) && can_Shoot: 
 		_shoot()
 		timer.start()	
 	#Movimiento	CANNOT GO OUT OF BOUNDS
-	if Input.is_action_pressed("left") && position.x > 70: velocity.x -= 1
-	if Input.is_action_pressed("right") && position.x < 790: velocity.x += 1
+	if Input.is_action_pressed("left") && position.x > 70: 
+		velocity.x -= 1
+		if $Sprite.rotation_degrees > -8 : $Sprite.rotation_degrees -= 30 * delta
+	if Input.is_action_pressed("right") && position.x < 790: 
+		velocity.x += 1
+		if $Sprite.rotation_degrees < 8 : $Sprite.rotation_degrees += 30 * delta		
 	if Input.is_action_pressed("up") && position.y > 10: velocity.y -= 1
 	if Input.is_action_pressed("down") && position.y < 680: velocity.y += 1
+	
 	velocity = velocity.normalized() * speed 
 	
 	if Input.is_action_just_pressed("bomb") && BOMBS > 0: 

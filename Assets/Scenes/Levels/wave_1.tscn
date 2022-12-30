@@ -10,133 +10,143 @@ duration = 7.0
 [node name="Enemy" parent="." instance=ExtResource( 1 )]
 position = Vector2( -44, 48 )
 HP = 1.0
-SHOOT_CD = 2.0
+WAIT_CD = 3.0
 BULLET_DURATION = 7.0
 BULLET_CD = 2.0
 SPEED = 80.0
-ANGLE = 15
-BULLET_FRAME = 4
-SHOOT_TYPE = "CIRCLE AIMBOT"
-RADIO = 100.0
+ANGLE = 10
+SHOOT_CANT = 4
+BULLET_FRAME = 11
+SHOOT_TYPE = "CIRCLE EXPLOSION"
+RADIO = 0.0
 
 [node name="Enemy4" parent="." instance=ExtResource( 1 )]
 position = Vector2( -215, 48 )
 HP = 1.0
-SHOOT_CD = 2.0
+WAIT_CD = 3.0
 BULLET_DURATION = 7.0
 BULLET_CD = 2.0
 SPEED = 80.0
-ANGLE = 15
-BULLET_FRAME = 4
-SHOOT_TYPE = "CIRCLE AIMBOT"
-RADIO = 100.0
+ANGLE = 10
+SHOOT_CANT = 4
+BULLET_FRAME = 11
+SHOOT_TYPE = "CIRCLE EXPLOSION"
+RADIO = 0.0
 
 [node name="Enemy5" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1075, 48 )
 HP = 1.0
-SHOOT_CD = 2.0
+WAIT_CD = 3.0
 BULLET_DURATION = 7.0
 BULLET_CD = 2.0
 SPEED = 80.0
-ANGLE = 15
-BULLET_FRAME = 4
-SHOOT_TYPE = "CIRCLE AIMBOT"
-RADIO = 100.0
+ANGLE = 10
+SHOOT_CANT = 4
+BULLET_FRAME = 11
+SHOOT_TYPE = "CIRCLE EXPLOSION"
+RADIO = 0.0
 direccion_horizontal = -1
 
 [node name="Enemy8" parent="." instance=ExtResource( 1 )]
 position = Vector2( 904, 48 )
 HP = 1.0
-SHOOT_CD = 2.0
+WAIT_CD = 3.0
 BULLET_DURATION = 7.0
 BULLET_CD = 2.0
 SPEED = 80.0
-ANGLE = 15
-BULLET_FRAME = 4
-SHOOT_TYPE = "CIRCLE AIMBOT"
-RADIO = 100.0
+ANGLE = 10
+SHOOT_CANT = 4
+BULLET_FRAME = 11
+SHOOT_TYPE = "CIRCLE EXPLOSION"
+RADIO = 0.0
 direccion_horizontal = -1
 
 [node name="Enemy9" parent="." instance=ExtResource( 1 )]
-position = Vector2( 90, -52 )
+position = Vector2( 190, -52 )
 HP = 1.0
-SHOOT_CD = 2.0
 BULLET_DURATION = 2.15
 BULLET_CD = 0.5
 SPEED = 80.0
 BULLET_SPEED = 520.602
 ENEMY_FRAME = 15
+SHOOT_CANT = 5
 BULLET_FRAME = 10
 SHOOT_TYPE = "AUTOAIM"
+RADIO = 100.0
 direccion_horizontal = 0
 direccion_vertical = 1
 
 [node name="Enemy10" parent="." instance=ExtResource( 1 )]
-position = Vector2( 90, -144 )
+position = Vector2( 190, -144 )
 HP = 1.0
-SHOOT_CD = 2.0
 BULLET_DURATION = 2.15
 BULLET_CD = 0.5
 SPEED = 80.0
 BULLET_SPEED = 520.602
 ENEMY_FRAME = 15
+SHOOT_CANT = 5
 BULLET_FRAME = 10
 SHOOT_TYPE = "AUTOAIM"
+RADIO = 100.0
 direccion_horizontal = 0
 direccion_vertical = 1
 
 [node name="Enemy11" parent="." instance=ExtResource( 1 )]
-position = Vector2( 90, -229 )
+position = Vector2( 190, -229 )
 HP = 1.0
-SHOOT_CD = 2.0
 BULLET_DURATION = 2.15
 BULLET_CD = 0.5
 SPEED = 80.0
 BULLET_SPEED = 520.602
 ENEMY_FRAME = 15
+SHOOT_CANT = 5
 BULLET_FRAME = 10
 SHOOT_TYPE = "AUTOAIM"
+RADIO = 100.0
 direccion_horizontal = 0
 direccion_vertical = 1
 
 [node name="Enemy12" parent="." instance=ExtResource( 1 )]
-position = Vector2( 770, -52 )
+position = Vector2( 670, -52 )
 HP = 1.0
-SHOOT_CD = 2.0
 BULLET_DURATION = 2.15
 BULLET_CD = 0.5
 SPEED = 80.0
 BULLET_SPEED = 520.602
 ENEMY_FRAME = 15
+SHOOT_CANT = 5
 BULLET_FRAME = 10
 SHOOT_TYPE = "AUTOAIM"
+RADIO = 100.0
 direccion_horizontal = 0
 direccion_vertical = 1
 
 [node name="Enemy13" parent="." instance=ExtResource( 1 )]
-position = Vector2( 770, -144 )
+position = Vector2( 670, -144 )
 HP = 1.0
-SHOOT_CD = 2.0
 BULLET_DURATION = 2.15
 BULLET_CD = 0.5
 SPEED = 80.0
 BULLET_SPEED = 520.602
 ENEMY_FRAME = 15
+SHOOT_CANT = 5
 BULLET_FRAME = 10
 SHOOT_TYPE = "AUTOAIM"
+RADIO = 100.0
 direccion_horizontal = 0
 direccion_vertical = 1
 
 [node name="Enemy14" parent="." instance=ExtResource( 1 )]
-position = Vector2( 770, -229 )
+position = Vector2( 670, -229 )
 HP = 1.0
-SHOOT_CD = 2.0
 BULLET_DURATION = 2.15
 BULLET_CD = 0.5
 SPEED = 80.0
 BULLET_SPEED = 520.602
 ENEMY_FRAME = 15
+SHOOT_CANT = 5
 BULLET_FRAME = 10
 SHOOT_TYPE = "AUTOAIM"
+RADIO = 100.0
 direccion_horizontal = 0
 direccion_vertical = 1

@@ -8,169 +8,181 @@ script = ExtResource( 2 )
 duration = 5.0
 
 [node name="Enemy_A" parent="." instance=ExtResource( 1 )]
-position = Vector2( 90, -139 )
+position = Vector2( 190, -139 )
 HP = 1.0
-SHOOT_CD = 2.0
 BULLET_DURATION = 2.0
-BULLET_CD = 0.5
+BULLET_CD = 0.2
 SPEED = 80.0
 BULLET_SPEED = 400.0
+TIME_ALIVE = 20.0
 ENEMY_FRAME = 15
+SHOOT_CANT = 10
 BULLET_FRAME = 10
-SHOOT_TYPE = "Autoaim"
+SHOOT_TYPE = "AUTOAIM"
 direccion_horizontal = 0
 direccion_vertical = 1
 
 [node name="Enemy_A2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 90, -193 )
+position = Vector2( 190, -193 )
 HP = 1.0
-SHOOT_CD = 2.0
 BULLET_DURATION = 2.0
-BULLET_CD = 0.5
+BULLET_CD = 0.2
 SPEED = 80.0
 BULLET_SPEED = 400.0
+TIME_ALIVE = 20.0
 ENEMY_FRAME = 15
+SHOOT_CANT = 10
 BULLET_FRAME = 10
-SHOOT_TYPE = "Autoaim"
+SHOOT_TYPE = "AUTOAIM"
 direccion_horizontal = 0
 direccion_vertical = 1
 
 [node name="Enemy_A3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 90, -247 )
+position = Vector2( 190, -247 )
 HP = 1.0
-SHOOT_CD = 2.0
 BULLET_DURATION = 2.0
-BULLET_CD = 0.5
+BULLET_CD = 0.2
 SPEED = 80.0
 BULLET_SPEED = 400.0
+TIME_ALIVE = 20.0
 ENEMY_FRAME = 15
+SHOOT_CANT = 10
 BULLET_FRAME = 10
-SHOOT_TYPE = "Autoaim"
+SHOOT_TYPE = "AUTOAIM"
 direccion_horizontal = 0
 direccion_vertical = 1
 
 [node name="Enemy_A4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 90, -301 )
+position = Vector2( 190, -301 )
 HP = 1.0
-SHOOT_CD = 2.0
 BULLET_DURATION = 2.0
-BULLET_CD = 0.5
+BULLET_CD = 0.2
 SPEED = 80.0
 BULLET_SPEED = 400.0
+TIME_ALIVE = 20.0
 ENEMY_FRAME = 15
+SHOOT_CANT = 10
 BULLET_FRAME = 10
-SHOOT_TYPE = "Autoaim"
+SHOOT_TYPE = "AUTOAIM"
 direccion_horizontal = 0
 direccion_vertical = 1
 
 [node name="Enemy_A5" parent="." instance=ExtResource( 1 )]
-position = Vector2( 90, -353 )
+position = Vector2( 190, -353 )
 HP = 1.0
-SHOOT_CD = 2.0
 BULLET_DURATION = 2.0
-BULLET_CD = 0.5
+BULLET_CD = 0.2
 SPEED = 80.0
 BULLET_SPEED = 400.0
+TIME_ALIVE = 20.0
 ENEMY_FRAME = 15
+SHOOT_CANT = 10
 BULLET_FRAME = 10
-SHOOT_TYPE = "Autoaim"
+SHOOT_TYPE = "AUTOAIM"
 direccion_horizontal = 0
 direccion_vertical = 1
 
 [node name="Enemy_A6" parent="." instance=ExtResource( 1 )]
-position = Vector2( 90, -407 )
+position = Vector2( 190, -407 )
 HP = 1.0
-SHOOT_CD = 2.0
 BULLET_DURATION = 2.0
-BULLET_CD = 0.5
+BULLET_CD = 0.2
 SPEED = 80.0
 BULLET_SPEED = 400.0
+TIME_ALIVE = 20.0
 ENEMY_FRAME = 15
+SHOOT_CANT = 10
 BULLET_FRAME = 10
-SHOOT_TYPE = "Autoaim"
+SHOOT_TYPE = "AUTOAIM"
 direccion_horizontal = 0
 direccion_vertical = 1
 
 [node name="Enemy_A7" parent="." instance=ExtResource( 1 )]
-position = Vector2( 770, -139 )
+position = Vector2( 670, -139 )
 HP = 1.0
-SHOOT_CD = 2.0
 BULLET_DURATION = 2.0
-BULLET_CD = 0.5
+BULLET_CD = 0.2
 SPEED = 80.0
 BULLET_SPEED = 400.0
+TIME_ALIVE = 20.0
 ENEMY_FRAME = 15
+SHOOT_CANT = 10
 BULLET_FRAME = 10
-SHOOT_TYPE = "Autoaim"
+SHOOT_TYPE = "AUTOAIM"
 direccion_horizontal = 0
 direccion_vertical = 1
 
 [node name="Enemy_A8" parent="." instance=ExtResource( 1 )]
-position = Vector2( 770, -193 )
+position = Vector2( 670, -193 )
 HP = 1.0
-SHOOT_CD = 2.0
 BULLET_DURATION = 2.0
-BULLET_CD = 0.5
+BULLET_CD = 0.2
 SPEED = 80.0
 BULLET_SPEED = 400.0
+TIME_ALIVE = 20.0
 ENEMY_FRAME = 15
+SHOOT_CANT = 10
 BULLET_FRAME = 10
-SHOOT_TYPE = "Autoaim"
+SHOOT_TYPE = "AUTOAIM"
 direccion_horizontal = 0
 direccion_vertical = 1
 
 [node name="Enemy_A9" parent="." instance=ExtResource( 1 )]
-position = Vector2( 770, -247 )
+position = Vector2( 670, -247 )
 HP = 1.0
-SHOOT_CD = 2.0
 BULLET_DURATION = 2.0
-BULLET_CD = 0.5
+BULLET_CD = 0.2
 SPEED = 80.0
 BULLET_SPEED = 400.0
+TIME_ALIVE = 20.0
 ENEMY_FRAME = 15
+SHOOT_CANT = 10
 BULLET_FRAME = 10
-SHOOT_TYPE = "Autoaim"
+SHOOT_TYPE = "AUTOAIM"
 direccion_horizontal = 0
 direccion_vertical = 1
 
 [node name="Enemy_A10" parent="." instance=ExtResource( 1 )]
-position = Vector2( 770, -301 )
+position = Vector2( 670, -301 )
 HP = 1.0
-SHOOT_CD = 2.0
 BULLET_DURATION = 2.0
-BULLET_CD = 0.5
+BULLET_CD = 0.2
 SPEED = 80.0
 BULLET_SPEED = 400.0
+TIME_ALIVE = 20.0
 ENEMY_FRAME = 15
+SHOOT_CANT = 10
 BULLET_FRAME = 10
-SHOOT_TYPE = "Autoaim"
+SHOOT_TYPE = "AUTOAIM"
 direccion_horizontal = 0
 direccion_vertical = 1
 
 [node name="Enemy_A11" parent="." instance=ExtResource( 1 )]
-position = Vector2( 770, -353 )
+position = Vector2( 670, -353 )
 HP = 1.0
-SHOOT_CD = 2.0
 BULLET_DURATION = 2.0
-BULLET_CD = 0.5
+BULLET_CD = 0.2
 SPEED = 80.0
 BULLET_SPEED = 400.0
+TIME_ALIVE = 20.0
 ENEMY_FRAME = 15
+SHOOT_CANT = 10
 BULLET_FRAME = 10
-SHOOT_TYPE = "Autoaim"
+SHOOT_TYPE = "AUTOAIM"
 direccion_horizontal = 0
 direccion_vertical = 1
 
 [node name="Enemy_A12" parent="." instance=ExtResource( 1 )]
-position = Vector2( 770, -407 )
+position = Vector2( 670, -407 )
 HP = 1.0
-SHOOT_CD = 2.0
 BULLET_DURATION = 2.0
-BULLET_CD = 0.5
+BULLET_CD = 0.2
 SPEED = 80.0
 BULLET_SPEED = 400.0
+TIME_ALIVE = 20.0
 ENEMY_FRAME = 15
+SHOOT_CANT = 10
 BULLET_FRAME = 10
-SHOOT_TYPE = "Autoaim"
+SHOOT_TYPE = "AUTOAIM"
 direccion_horizontal = 0
 direccion_vertical = 1

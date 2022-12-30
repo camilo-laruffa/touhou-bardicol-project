@@ -3,7 +3,7 @@ extends KinematicBody2D
 # Export hace que las variables se puedan cambiar en el Inspector, 
 # eso nos deja customizar cada prefab por separado
 export(float) var HP: float = 1 #La vida del enemigo
-export(float,20) var SHOOT_CD: float = 1 # Cada cuanto dispara(espera x tiempo, dispara x tiempo, espera x tiempo)
+export(float,20) var WAIT_CD: float = 2 # Cuanto espera para empezar a disparar
 export(float,20) var BULLET_DURATION: float = 1 # Cuanto dura una bala antes de desaparecer
 export(float,20) var BULLET_CD: float = 0.3 # Una vez puede disparar, cada cuanto puede salir 1 disparo
 export(float,1000) var SPEED: float = 10 # Velocidad del enemigo
@@ -12,10 +12,11 @@ export(float,1000) var TIME_ALIVE: float = 10 # Cuanto tiempo vive el enemigo an
 export(int) var LIVES: int = 3 # Cuantas vidas tiene el enemigo
 export(int) var ANGLE: int = 15 # Cada cuantos grados aparece una bala en el disparo circular
 export(int) var ENEMY_FRAME: int = 13 # Que frame del spritesheet usa para el sprite del enemigo
+export(int) var SHOOT_CANT: int = 2 # Cuantas veces puede disparar
 export(int) var BULLET_FRAME: int = 8 # Que frame del spritesheet usa para el sprite de la bala
 export(String,"AUTOAIM","CIRCLE DOWN","CIRCLE AIMBOT","CIRCLE EXPLOSION") var SHOOT_TYPE: String = "AUTOAIM" # Tipo de disparo (en la funcion te podes fijar cuales son)
 export(String,"POWER","POINT","BOMB","EXTEND") var DROP_TYPE: String = "POWER"
-export(float,1000) var RADIO: float = 3 # El radio en el que aparecen las balas en el disparo circular
+export(float,1000) var RADIO: float = 100 # El radio en el que aparecen las balas en el disparo circular
 export(int,-1,1) var direccion_horizontal: int = 1 # Direccion horizontal del movimiento(-1 izq ,0, 1 derecha)
 export(int,-1,1) var direccion_vertical: int = 0 # Direccion vertical del movimiento(-1 arriba ,0, 1 abajo)
 onready var BULLET = preload("res://Assets/Scenes/Prefabs/Bullet.tscn") # Precarga la bala
@@ -32,15 +33,24 @@ func _ready():
 	set_physics_process(true)
 	hp = HP
 	lives = LIVES
-	$Death_Timer.set_wait_time(TIME_ALIVE) #Le decimos cuanto dura
+	var SHOOT_CD = SHOOT_CANT / BULLET_CD
+	$Death_Timer.set_wait_time(TIME_ALIVE) 
 	$Shoot_Timer.set_wait_time(SHOOT_CD) 
 	$Bullet_Timer.set_wait_time(BULLET_CD) 
+	$Wait_Timer.set_wait_time(WAIT_CD)
 	$Sprite.frame = ENEMY_FRAME
 	self.add_to_group("enemies")
 	if SHOOT_CD == 0 : can_shoot = true
 	
 func _physics_process(delta):
 	_movement()
+	if (SHOOT_CANT <= 0) : can_shoot = false
+	if position.y > 720 : queue_free()
+	
+func _on_Wait_Timer_timeout():
+	$Shoot_Timer.start()
+	$Bullet_Timer.start()
+	can_shoot = true
 
 func _on_Bullet_Timer_timeout():
 	$Bullet_Timer.start()	
@@ -52,7 +62,6 @@ func _on_Death_Timer_timeout():
 
 func _on_Shoot_Timer_timeout():
 	if can_shoot : $Bullet_Timer.start()
-	if SHOOT_CD == 0 : return
 	can_shoot = !can_shoot
 	$Shoot_Timer.start()
 
@@ -77,6 +86,7 @@ func _recieve_damage(damage):
 		queue_free() 
 
 func _shoot(var type: String):
+	SHOOT_CANT -= 1
 	type = type.to_upper()
 	match type:
 		"CIRCLE EXPLOSION":
@@ -124,6 +134,3 @@ func _circle_bullet(var type):
 		get_parent().call_deferred("add_child", bullet)
 		bullet.get_node("AudioStreamPlayer").volume_db = -62
 		bullet.add_to_group("bullets")
-	pass
-
-

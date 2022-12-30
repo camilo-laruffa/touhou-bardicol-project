@@ -39,10 +39,14 @@ frame = 13
 [node name="Bullet_Timer" type="Timer" parent="."]
 
 [node name="Shoot_Timer" type="Timer" parent="."]
-autostart = true
 
 [node name="Death_Timer" type="Timer" parent="."]
 wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="Wait_Timer" type="Timer" parent="."]
+wait_time = 2.0
 one_shot = true
 autostart = true
 
@@ -50,3 +54,4 @@ autostart = true
 [connection signal="timeout" from="Bullet_Timer" to="." method="_on_Bullet_Timer_timeout"]
 [connection signal="timeout" from="Shoot_Timer" to="." method="_on_Shoot_Timer_timeout"]
 [connection signal="timeout" from="Death_Timer" to="." method="_on_Death_Timer_timeout"]
+[connection signal="timeout" from="Wait_Timer" to="." method="_on_Wait_Timer_timeout"]
