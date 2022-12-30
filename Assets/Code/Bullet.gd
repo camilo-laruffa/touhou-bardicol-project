@@ -28,7 +28,7 @@ func _ready():
 	if(!Player_bullet):
 		SPRITE.self_modulate = Self_modulate
 		SPRITE.modulate = Modulate
-		look_at(get_node("../../Player").global_position)
+		look_at(get_tree().get_nodes_in_group("player")[0].global_position)
 		rotation -= PI/2
 	else: 
 		get_node("AudioStreamPlayer").volume_db = -60

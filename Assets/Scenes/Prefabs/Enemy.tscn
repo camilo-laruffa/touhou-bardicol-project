@@ -17,7 +17,6 @@ SPEED = 0.0
 BULLET_SPEED = 265.422
 LIVES = 1
 ANGLE = 20
-SHOOT_TYPE = "Circle aimbot"
 RADIO = 129.324
 
 [node name="Hurtbox_Enemy" type="Area2D" parent="."]

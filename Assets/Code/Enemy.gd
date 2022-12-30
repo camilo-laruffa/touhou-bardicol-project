@@ -98,8 +98,8 @@ func _autoaim():
 	#Enviamos una bala hacia la posicion del jugador
 	var bullet = BULLET.instance()
 	player_position = Vector2(0,0)
-	if(is_instance_valid($"../../Player")): # Aveces se bugea, asi que primero nos fijamos que exista el jugador y dsp obtenemos donde esta
-		player_position = $"../../Player".position
+	if(is_instance_valid(get_tree().get_nodes_in_group("player")[0])): # Aveces se bugea, asi que primero nos fijamos que exista el jugador y dsp obtenemos donde esta
+		player_position = get_tree().get_nodes_in_group("player")[0].position
 	var direction = position.direction_to(player_position)
 	
 	bullet.init(false,BULLET_FRAME,direction,BULLET_SPEED,BULLET_DURATION) # Iniciamos la bala con todo lo necesario
@@ -119,8 +119,8 @@ func _circle_bullet(var type):
 		
 		if (type == 1): 
 			direction = Vector2(cos(deg2rad(i)),sin(deg2rad(i)))
-		if type == 2 && is_instance_valid($"../../Player"): 
-			player_position = $"../../Player".position
+		if type == 2 && is_instance_valid(get_tree().get_nodes_in_group("player")[0]): 
+			player_position = get_tree().get_nodes_in_group("player")[0].position
 			direction =  bullet.position.direction_to(player_position)			
 		
 		bullet.init(false,BULLET_FRAME,direction,BULLET_SPEED,BULLET_DURATION)
