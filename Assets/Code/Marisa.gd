@@ -85,16 +85,17 @@ func _bomb():
 		bonus.Go_to_player = true
 
 func _on_Hurtbox_area_entered(area):
-	if area.name == "Player_catch" :
+	var name = area.name.to_upper()
+	if name == "PLAYER_CATCH" :
 		_manage_catch(area.get_parent())
 		print("Power: ",POWER)
 		print("Bombs: ",BOMBS)
 		print("Lives: ",LIVES)
 		print("Score: ",SCORE)
 		area.get_parent().queue_free()
-	if area.name == "Hitbox_Bonus" :
+	if name == "HITBOX_BONUS" :
 		area.get_parent().Go_to_player = true
-	if area.name == "Hitbox_Bullet" :
+	if name == "HITBOX_BULLET" || name == "HURTBOX_ENEMY":
 		sound.play()
 		LIVES -= 1
 	
