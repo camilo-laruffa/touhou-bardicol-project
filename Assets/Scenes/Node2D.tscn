@@ -32,10 +32,10 @@ position = Vector2( 187, -90 )
 position = Vector2( 330, -24 )
 
 [node name="Spawn nubes6" parent="." instance=ExtResource( 8 )]
-position = Vector2( 648, -97 )
+position = Vector2( 665, -86 )
 
 [node name="Spawn nubes7" parent="." instance=ExtResource( 8 )]
-position = Vector2( 791, -31 )
+position = Vector2( 774, -25 )
 
 [node name="Spawn nubes4" parent="." instance=ExtResource( 8 )]
 position = Vector2( 449, -84 )
