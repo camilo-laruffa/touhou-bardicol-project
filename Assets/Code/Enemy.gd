@@ -66,7 +66,6 @@ func _on_HurtBox_area_entered(hitbox):
 		_recieve_damage(get_tree().get_nodes_in_group("player")[0].POWER)
 
 func _recieve_damage(damage):
-	print(damage)
 	hp -= damage
 	if (hp <= 0): 
 		lives -= 1
@@ -77,7 +76,7 @@ func _die():
 	# Agrega que ponga varios bonus en partes random pero cercanas a donde muere el bicho, asi se ve bonito
 	var bonus = BONUS.instance()
 	bonus.init(DROP_TYPE,1,false)
-	if get_tree().get_nodes_in_group("player")[0].POWER >= 2 && DROP_TYPE == "POWER" :
+	if get_tree().get_nodes_in_group("player")[0].POWER >= 4 && DROP_TYPE == "POWER" :
 		bonus.init("POINT",1,false)
 	bonus.position = position
 	get_parent().call_deferred("add_child", bonus)

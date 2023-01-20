@@ -32,6 +32,7 @@ func _physics_process(delta):
 		var bonuses = get_tree().get_nodes_in_group("bonus")
 		for bonus in bonuses:
 			bonus.Go_to_player = true		
+	Global.parametrear(SCORE,POWER,BOMBS,LIVES)
 
 #Controla el input
 func _manage_input(delta):
@@ -102,15 +103,10 @@ func _manage_catch(var bonus):
 	var type = bonus.TYPE
 	match type:
 		"POWER":
-			if POWER < 4 : 
-				POWER += 0.25
+			if POWER < 3.95 : 
+				POWER += 0.05
 		"BOMB":
 			BOMBS += 1
 		"EXTEND":
 			LIVES += 1
-	print("Power: ",POWER)
-	print("Bombs: ",BOMBS)
-	print("Lives: ",LIVES)
-	print("Score: ",SCORE)
-	SCORE += bonus.POINTS
-	Global.score = SCORE
+	SCORE+= bonus.POINTS
