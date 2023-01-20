@@ -1,6 +1,6 @@
 # Bienvenido al Touhou Bardicol Project
 ## Un juego bullet hell con la tematica de los juegos de ZUN
-### Controles:
+### Controles
 - **Flechas** para moverte
 - **Z** para disparar
 - **X** para borrar las balas en pantalla y hacer daño
