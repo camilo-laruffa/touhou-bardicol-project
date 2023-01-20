@@ -26,6 +26,8 @@ func _process(delta):
 			_next_wave()
 			wave_timer.set_wait_time(wave_duration)
 			wave_timer.start()
+	if get_tree().get_nodes_in_group("player")[0].LIVES < 0 :
+		get_tree().change_scene("res://Assets/Scenes/Menu.tscn")
 
 func _next_wave():
 	wave = Wave[w_index].instance()

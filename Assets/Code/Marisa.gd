@@ -23,8 +23,8 @@ func _ready():
 	self.add_to_group("player")
 	
 func _physics_process(delta):
-	if $Sprite.rotation_degrees < 0: $Sprite.rotation_degrees += 20 * delta
-	if $Sprite.rotation_degrees > 0: $Sprite.rotation_degrees -= 20 * delta
+	if $Sprite.rotation_degrees < 0: $Sprite.rotation_degrees += 50 * delta
+	if $Sprite.rotation_degrees > 0: $Sprite.rotation_degrees -= 50 * delta
 	$Hitbox.set_visible(Visible)	
 	_manage_input(delta)
 	velocity = move_and_slide(velocity)
@@ -45,10 +45,10 @@ func _manage_input(delta):
 	#Movimiento	CANNOT GO OUT OF BOUNDS
 	if Input.is_action_pressed("left") && position.x > 70: 
 		velocity.x -= 1
-		if $Sprite.rotation_degrees > -8 : $Sprite.rotation_degrees -= 30 * delta
+		if $Sprite.rotation_degrees > -8 : $Sprite.rotation_degrees -= 80 * delta
 	if Input.is_action_pressed("right") && position.x < 790: 
 		velocity.x += 1
-		if $Sprite.rotation_degrees < 8 : $Sprite.rotation_degrees += 30 * delta		
+		if $Sprite.rotation_degrees < 8 : $Sprite.rotation_degrees += 80 * delta		
 	if Input.is_action_pressed("up") && position.y > 10: velocity.y -= 1
 	if Input.is_action_pressed("down") && position.y < 680: velocity.y += 1
 	
@@ -102,7 +102,8 @@ func _manage_catch(var bonus):
 	var type = bonus.TYPE
 	match type:
 		"POWER":
-			POWER += 0.25
+			if POWER < 4 : 
+				POWER += 0.25
 		"BOMB":
 			BOMBS += 1
 		"EXTEND":

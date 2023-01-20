@@ -21,6 +21,7 @@ ENEMY_FRAME = 14
 SHOOT_CANT = 3
 BULLET_FRAME = 4
 SHOOT_TYPE = "CIRCLE AIMBOT"
+DROP_TYPE = "BOMB"
 RADIO = 100.0
 direccion_horizontal = 0
 direccion_vertical = 1
