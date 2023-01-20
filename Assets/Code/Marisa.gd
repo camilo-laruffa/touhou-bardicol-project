@@ -113,3 +113,4 @@ func _manage_catch(var bonus):
 	print("Lives: ",LIVES)
 	print("Score: ",SCORE)
 	SCORE += bonus.POINTS
+	Global.score = SCORE
