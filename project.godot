@@ -13,6 +13,7 @@ config_version=4
 config/name="Touhou - The Bardicol experience"
 run/main_scene="res://Assets/Scenes/Menu.tscn"
 config/icon="res://icon.png"
+config/windows_native_icon="res://Assets/Sprites/Touhou Icons/64_005.ico"
 
 [autoload]
 

@@ -1,2 +1,4 @@
 # Bienvenido al Touhou Bardicol Project
-Actualmente si hay mucho para ver >:)
+Nos alegra mucho anunciar que el demo del juego ya esta disponible para descargar en la pestaña de "Releases" 
+
+Muchas Gracias!

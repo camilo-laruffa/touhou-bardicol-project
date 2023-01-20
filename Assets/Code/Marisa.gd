@@ -109,4 +109,4 @@ func _manage_catch(var bonus):
 			BOMBS += 1
 		"EXTEND":
 			LIVES += 1
-	SCORE+= bonus.POINTS
+	SCORE += bonus.POINTS
