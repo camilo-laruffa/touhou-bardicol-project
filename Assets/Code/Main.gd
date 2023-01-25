@@ -12,6 +12,8 @@ var w_index = 0
 func _ready():	
 	#Todavia estamos trabajando en stage/wave manager
 	var player = Player.instance()
+	AudioManager.change_music("res://Assets/Sounds/musica.mp3")
+	AudioManager.play_music()
 	add_child(player)
 	wave_timer.set_wait_time(0)
 	wave_timer.set_one_shot(true)
@@ -21,13 +23,13 @@ func _ready():
 func _process(delta):
 	if w_index >= Wave.size() : w_index = 0
 	if wave_timer.is_stopped() :
-		print(w_index)
 		if w_index < Wave.size():
 			_next_wave()
 			wave_timer.set_wait_time(wave_duration)
 			wave_timer.start()
 	if get_tree().get_nodes_in_group("player")[0].LIVES < 0 :
 		get_tree().change_scene("res://Assets/Scenes/Game Over.tscn")
+		AudioManager.stop_music()
 
 func _next_wave():
 	wave = Wave[w_index].instance()

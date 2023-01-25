@@ -31,7 +31,6 @@ func _ready():
 		look_at(get_tree().get_nodes_in_group("player")[0].global_position)
 		rotation -= PI/2
 	else: 
-		get_node("AudioStreamPlayer").volume_db = -60
 		damage = get_tree().get_nodes_in_group("player")[0].POWER
 	SPRITE.frame = Frame
 	add_child(timer)

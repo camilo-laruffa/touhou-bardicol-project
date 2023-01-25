@@ -1,12 +1,20 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Sprites/marisa_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Sprites/hitbox.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Tema botones.tres" type="Theme" id=3]
 [ext_resource path="res://Assets/Code/Marisa.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Sounds/miss.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Fonts/static/JosefinSans-Bold.ttf" type="DynamicFontData" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 3.0
+
+[sub_resource type="DynamicFont" id=2]
+size = 26
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 4 )
@@ -37,4 +45,27 @@ stream = ExtResource( 5 )
 volume_db = -33.178
 mix_target = 2
 
+[node name="Control" type="Control" parent="."]
+margin_left = -26.0
+margin_top = -39.0
+margin_right = 14.0
+margin_bottom = 1.0
+theme = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="Control"]
+visible = false
+margin_left = -4.0
+margin_top = -15.0
+margin_right = 56.0
+margin_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_colors/font_color = Color( 1, 0.984314, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "0"
+align = 1
+
+[node name="Timer" type="Timer" parent="Control"]
+
 [connection signal="area_entered" from="Hurtbox_Player" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="timeout" from="Control/Timer" to="." method="_on_Timer_timeout"]

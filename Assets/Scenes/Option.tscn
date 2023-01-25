@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Tema botones.tres" type="Theme" id=1]
+[ext_resource path="res://Assets/Sprites/minimalist_kirisame_marisa__touhou_by_theztret00_db8h3xx-fullview.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Code/Option.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Fonts/static/JosefinSans-Bold.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 38
+outline_size = 6
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[node name="Option" type="Control"]
+script = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 737.0
+margin_top = 219.0
+margin_right = 1002.0
+margin_bottom = 371.0
+theme = ExtResource( 1 )
+alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+margin_top = 15.0
+margin_right = 265.0
+margin_bottom = 54.0
+custom_fonts/font = SubResource( 1 )
+text = "Music Volume"
+align = 1
+
+[node name="Music_slider" type="HSlider" parent="VBoxContainer"]
+margin_top = 58.0
+margin_right = 265.0
+margin_bottom = 74.0
+min_value = -50.0
+max_value = 2.0
+value = 1.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_top = 78.0
+margin_right = 265.0
+margin_bottom = 117.0
+custom_fonts/font = SubResource( 1 )
+text = "SFX Volume"
+align = 1
+
+[node name="SFX_slider" type="HSlider" parent="VBoxContainer"]
+margin_top = 121.0
+margin_right = 265.0
+margin_bottom = 137.0
+min_value = -80.0
+max_value = 1.0
+value = 1.0
+
+[node name="Return" type="Button" parent="."]
+margin_left = 737.0
+margin_top = 424.0
+margin_right = 1002.0
+margin_bottom = 472.0
+theme = ExtResource( 1 )
+text = "Return"
+flat = true
+
+[node name="MinimalistKirisameMarisaTouhouByTheztret00Db8H3Xx-fullview" type="Sprite" parent="."]
+position = Vector2( -298.353, 396.136 )
+scale = Vector2( -1, 1 )
+z_index = -1
+texture = ExtResource( 2 )
+offset = Vector2( -813.353, -23.1359 )
+
+[connection signal="value_changed" from="VBoxContainer/Music_slider" to="." method="_on_Music_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SFX_slider" to="." method="_on_SFX_slider_value_changed"]
+[connection signal="pressed" from="Return" to="." method="_on_Return_pressed"]

@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Code/Information.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Scenes/Spawn nubes.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Code/Main.gd" type="Script" id=3]
-[ext_resource path="res://Assets/Sounds/musica.mp3" type="AudioStream" id=4]
 [ext_resource path="res://Assets/Sprites/up_background.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Sprites/background.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Tema botones.tres" type="Theme" id=7]
@@ -18,6 +17,7 @@ z_index = 2
 texture = ExtResource( 5 )
 
 [node name="transparente" type="Sprite" parent="."]
+modulate = Color( 0.160784, 0.960784, 1, 1 )
 position = Vector2( 436, 361 )
 scale = Vector2( 11.6135, 11.703 )
 z_index = -1
@@ -43,12 +43,6 @@ position = Vector2( 449, -84 )
 
 [node name="Spawn nubes5" parent="." instance=ExtResource( 2 )]
 position = Vector2( 555, -23 )
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
-volume_db = -18.995
-autoplay = true
-mix_target = 2
 
 [node name="Node2D" type="Node2D" parent="."]
 z_index = 2

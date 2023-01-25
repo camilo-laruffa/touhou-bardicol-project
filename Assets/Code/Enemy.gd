@@ -75,9 +75,9 @@ func _recieve_damage(damage):
 func _die():	
 	# Agrega que ponga varios bonus en partes random pero cercanas a donde muere el bicho, asi se ve bonito
 	var bonus = BONUS.instance()
-	bonus.init(DROP_TYPE,1,false)
+	bonus.init(DROP_TYPE,1000,false)
 	if get_tree().get_nodes_in_group("player")[0].POWER >= 3.95 && DROP_TYPE == "POWER" :
-		bonus.init("POINT",1,false)
+		bonus.init("POINT",1000,false)
 	bonus.position = position
 	get_parent().call_deferred("add_child", bonus)
 	queue_free() 
@@ -87,12 +87,16 @@ func _shoot(var type: String):
 	type = type.to_upper()
 	match type:
 		"CIRCLE EXPLOSION":
+			AudioManager.play("Enemy Circle Shot")
 			_circle_bullet(1)
 		"CIRCLE AIMBOT":
+			AudioManager.play("Enemy Circle Shot")
 			_circle_bullet(2)
 		"CIRCLE DOWN":
+			AudioManager.play("Enemy Circle Shot")
 			_circle_bullet(3)
 		"AUTOAIM":
+			AudioManager.play("Enemy Normal Shot")
 			_autoaim()
 		_:
 			print("Invalid shooting type: ", type) # Si escribiste mal el tipo de disparo te dice que sos pelotudo
@@ -129,5 +133,4 @@ func _circle_bullet(var type):
 		
 		bullet.init(false,BULLET_FRAME,direction,BULLET_SPEED,BULLET_DURATION)
 		get_parent().call_deferred("add_child", bullet)
-		bullet.get_node("AudioStreamPlayer").volume_db = -62
 		bullet.add_to_group("bullets")

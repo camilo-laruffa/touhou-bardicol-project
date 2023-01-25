@@ -5,6 +5,7 @@ func _ready():
 	$HBoxContainer/VBoxContainer2/Score.text = str(Global.score)
 	$HBoxContainer/VBoxContainer2/Highscore.text = str(Global.highscore)
 	$VBoxContainer/Continue.grab_focus()
+	AudioManager.change_music("res://Assets/Sounds/perdiste_music.mp3")
 	pass
 
 
@@ -13,4 +14,5 @@ func _on_Continue_pressed():
 
 
 func _on_Menu_pressed():
+	AudioManager.stop_music()
 	get_tree().change_scene("res://Assets/Scenes/Menu.tscn")

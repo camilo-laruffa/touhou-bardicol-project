@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 onready var BULLET = preload("res://Assets/Scenes/Prefabs/Bullet.tscn")
 onready var BONUS = preload("res://Assets/Scenes/Prefabs/Bonus.tscn")
+onready var BOMB = preload("res://Assets/Scenes/Prefabs/Bomb.tscn")
 export(float) var SPEED: float = 400
 var POWER = 1
 var BOMBS = 2
@@ -41,6 +42,7 @@ func _manage_input(delta):
 	Visible = true if (Input.is_action_pressed("shift")) else false
 	
 	if Input.is_action_pressed("shoot" ) && can_Shoot: 
+		AudioManager.play("Player Shot")
 		_shoot()
 		timer.start()	
 	#Movimiento	CANNOT GO OUT OF BOUNDS
@@ -56,6 +58,10 @@ func _manage_input(delta):
 	velocity = velocity.normalized() * speed 
 	
 	if Input.is_action_just_pressed("bomb") && BOMBS > 0: 
+		AudioManager.play("Player Bomb")
+		var bomb = BOMB.instance()
+		bomb.position = position
+		get_parent().add_child(bomb)
 		BOMBS -= 1
 		_bomb()
 	
@@ -96,8 +102,14 @@ func _on_Hurtbox_area_entered(area):
 	if name == "HITBOX_BONUS" :
 		area.get_parent().Go_to_player = true
 	if name == "HITBOX_BULLET" || name == "HURTBOX_ENEMY":
-		$Sound.play()
+		AudioManager.play("Player Miss")
+		var death_bomb = BOMB.instance()
+		death_bomb.position = position
+		death_bomb.modulate.r = 0
+		get_parent().add_child(death_bomb)
+		_bomb()
 		LIVES -= 1
+		SCORE = 10000
 	
 func _manage_catch(var bonus):
 	var type = bonus.TYPE
@@ -109,4 +121,11 @@ func _manage_catch(var bonus):
 			BOMBS += 1
 		"EXTEND":
 			LIVES += 1
-	SCORE += bonus.POINTS
+	SCORE += floor(bonus.POINTS * position.y)
+	$Control/Label.visible = true
+	$Control/Label.text = str(floor(bonus.POINTS * position.y))
+	$Control/Timer.start()
+
+
+func _on_Timer_timeout():
+	$Control/Label.visible = false

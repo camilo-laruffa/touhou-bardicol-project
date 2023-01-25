@@ -18,11 +18,11 @@ config/windows_native_icon="res://Assets/Sprites/Touhou Icons/64_005.ico"
 [autoload]
 
 Global="*res://Assets/Code/Global.gd"
+AudioManager="*res://Assets/Scenes/AudioManager.tscn"
 
 [debug]
 
 settings/fps/force_fps=60
-settings/stdout/print_fps=true
 
 [display]
 

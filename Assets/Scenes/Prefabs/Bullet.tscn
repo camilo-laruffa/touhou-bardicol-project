@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/Code/Bullet.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Sprites/marisa_spritesheet.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Sounds/ATTACK3.wav" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11.75, 12.25 )
@@ -26,11 +25,5 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox_Bullet"]
 position = Vector2( 0.25, -0.25 )
 shape = SubResource( 1 )
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
-volume_db = -40.816
-pitch_scale = 1.2
-autoplay = true
 
 [connection signal="area_entered" from="Hitbox_Bullet" to="." method="_on_Hitbox_area_entered"]
