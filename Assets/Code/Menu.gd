@@ -6,7 +6,7 @@ var SFX
 
 func _ready():
 	$VBoxContainer/Start.grab_focus()
-	AudioManager.change_music("res://Assets/Sounds/menu_music.mp3")
+	AudioManager.play_music()
 
 func _on_Start_pressed():
 	get_tree().change_scene("res://Assets/Scenes/Game.tscn")

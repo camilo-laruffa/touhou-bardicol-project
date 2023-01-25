@@ -4,6 +4,7 @@ extends Control
 func _ready():
 	$VBoxContainer/Music_slider.value = Global.music_volume
 	$VBoxContainer/SFX_slider.value = Global.sfx_volume
+	$Return.grab_focus()
 	pass
 
 

@@ -13,6 +13,6 @@ func _on_Continue_pressed():
 	get_tree().change_scene("res://Assets/Scenes/Game.tscn")
 
 
-func _on_Menu_pressed():
-	AudioManager.stop_music()
+func _on_Menu_pressed():	
+	AudioManager.change_music("res://Assets/Sounds/menu_music.mp3")
 	get_tree().change_scene("res://Assets/Scenes/Menu.tscn")
