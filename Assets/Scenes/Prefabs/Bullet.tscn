@@ -10,13 +10,12 @@ extents = Vector2( 11.75, 12.25 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 0.670588, 0.964706, 0.513726, 1 )
-self_modulate = Color( 1, 1, 1, 0.411765 )
+self_modulate = Color( 1, 1, 1, 0.54902 )
 scale = Vector2( 3.31248, 3.29222 )
 texture = ExtResource( 3 )
 hframes = 6
 vframes = 4
-frame = 4
+frame = 3
 
 [node name="Hitbox_Bullet" type="Area2D" parent="."]
 collision_layer = 8

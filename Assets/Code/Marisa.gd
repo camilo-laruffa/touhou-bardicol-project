@@ -14,6 +14,7 @@ const CD = 0.1
 var can_Shoot = true
 var Visible = false
 var timer = Timer.new() #Este timer es el del disparo
+var bomb_damage = 80
 
 func _ready():
 	set_physics_process(true)
@@ -67,8 +68,8 @@ func _manage_input(delta):
 	
 #Crea una instancia de bala, la mete a la escena y despues le setea la posicion inicial arriba del jugador
 func _shoot():
-	var bullet = BULLET.instance()
 	#Los valores de las balas del jugador no son customizables sin cambiar el codigo
+	var bullet = BULLET.instance()
 	bullet.init(true,3,Vector2(0,-16),100,1)
 	get_parent().add_child(bullet)
 	bullet.global_position = Vector2(get_node("Sprite").global_position.x, get_node("Sprite").global_position.y - 60)
@@ -90,7 +91,7 @@ func _bomb():
 		get_parent().call_deferred("add_child", bonus)			
 		bala.queue_free() 			
 	for enemy in enemies:
-		enemy._recieve_damage(80) #Hace que los enemigos reciban X daño
+		enemy._recieve_damage(bomb_damage) #Hace que los enemigos reciban X daño
 	for bonus in bonuses:
 		bonus.Go_to_player = true
 
@@ -107,9 +108,10 @@ func _on_Hurtbox_area_entered(area):
 		death_bomb.position = position
 		death_bomb.modulate.r = 0
 		get_parent().add_child(death_bomb)
+		bomb_damage = 10000
 		_bomb()
+		bomb_damage = 80
 		LIVES -= 1
-		SCORE = 10000
 	
 func _manage_catch(var bonus):
 	var type = bonus.TYPE
