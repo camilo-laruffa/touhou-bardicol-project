@@ -32,7 +32,8 @@ func _ready():
 		rotation -= PI/2
 	else: 
 		damage = get_tree().get_nodes_in_group("player")[0].POWER
-		speed = 150
+		speed = 80
+		scale = Vector2(1.3, 1.3)
 	SPRITE.frame = Frame
 	add_child(timer)
 	timer.set_wait_time(Bullet_duration)

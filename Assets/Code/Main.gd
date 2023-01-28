@@ -15,7 +15,6 @@ func _ready():
 	AudioManager.change_music("res://Assets/Sounds/musica.mp3")
 	AudioManager.play_music()
 	add_child(player)
-	wave_timer.set_wait_time(0)
 	wave_timer.set_one_shot(true)
 	add_child(wave_timer)
 	player.position = Vector2(300,530)

@@ -10,8 +10,8 @@ extents = Vector2( 11.75, 12.25 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-self_modulate = Color( 1, 1, 1, 0.54902 )
-scale = Vector2( 3.31248, 3.29222 )
+self_modulate = Color( 0.901961, 0.635294, 1, 0.721569 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 3 )
 hframes = 6
 vframes = 4

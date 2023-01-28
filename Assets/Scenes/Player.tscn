@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Sprites/marisa_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Sprites/hitbox.png" type="Texture" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://Assets/Code/Marisa.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Sounds/miss.mp3" type="AudioStream" id=5]
 [ext_resource path="res://Assets/Fonts/static/JosefinSans-Bold.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Assets/Sprites/charge_beam.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/laser.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Code/Laser.gd" type="Script" id=9]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 3.0
@@ -44,6 +47,36 @@ shape = SubResource( 1 )
 stream = ExtResource( 5 )
 volume_db = -33.178
 mix_target = 2
+
+[node name="Laser1" type="Node2D" parent="."]
+position = Vector2( 40, 14 )
+z_index = -1
+
+[node name="Sprite" type="Sprite" parent="Laser1"]
+position = Vector2( 0, -1 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+
+[node name="Sprite2" type="Sprite" parent="Laser1"]
+position = Vector2( 0, -373 )
+scale = Vector2( 3, 10 )
+texture = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="Laser2" type="Node2D" parent="."]
+position = Vector2( -40, 14 )
+z_index = -1
+
+[node name="Sprite" type="Sprite" parent="Laser2"]
+position = Vector2( 0, -1 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+
+[node name="Sprite3" type="Sprite" parent="Laser2"]
+position = Vector2( 0, -373 )
+scale = Vector2( 3, 10 )
+texture = ExtResource( 8 )
+script = ExtResource( 9 )
 
 [node name="Control" type="Control" parent="."]
 margin_left = -26.0

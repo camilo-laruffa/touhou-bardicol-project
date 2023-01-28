@@ -10,7 +10,7 @@ var LIVES = 3
 var SCORE = 0
 var velocity = Vector2()
 var speed
-const CD = 0.1
+const CD = 0.15
 var can_Shoot = true
 var Visible = false
 var timer = Timer.new() #Este timer es el del disparo
@@ -69,11 +69,42 @@ func _manage_input(delta):
 #Crea una instancia de bala, la mete a la escena y despues le setea la posicion inicial arriba del jugador
 func _shoot():
 	#Los valores de las balas del jugador no son customizables sin cambiar el codigo
-	var bullet = BULLET.instance()
-	bullet.init(true,3,Vector2(0,-16),100,1)
-	get_parent().add_child(bullet)
-	bullet.global_position = Vector2(get_node("Sprite").global_position.x, get_node("Sprite").global_position.y - 60)
-	bullet.damage = 3
+	var Bullets = {}
+	var power = int(floor(POWER))
+	var shooting_points = {}
+	match power:
+		1:
+			shooting_points[0] = 0
+		2:
+			shooting_points[0] = -1
+			shooting_points[1] = 1
+		3:
+			shooting_points[0] = -1
+			shooting_points[1] = 0
+			shooting_points[2] = 1
+		4:
+			shooting_points[0] = -2
+			shooting_points[1] = -1
+			shooting_points[2] = 0
+			shooting_points[3] = 1
+			shooting_points[4] = 2
+	#Esto es como un full power
+	if power == 4 : power = 5
+	for index in range(0,power):
+		Bullets[index] = BULLET.instance()
+		Bullets[index].init(true,3,Vector2(shooting_points[index],-10),100,1)
+		get_parent().add_child(Bullets[index])
+		Bullets[index].global_position = Vector2(get_node("Sprite").global_position.x, get_node("Sprite").global_position.y - 40)
+		Bullets[index].damage = 3
+		Bullets[index].z_index -= 1
+		if shooting_points[index] != 0 :
+			var angle = 1.5708 - atan(10/abs(shooting_points[index])) 
+			if shooting_points[index] < 0 :
+				Bullets[index].rotation -= angle
+				Bullets[index].global_position.y += abs(shooting_points[index] * 20)
+			else :
+				Bullets[index].rotation += angle
+				Bullets[index].global_position.y += abs(shooting_points[index] * 20)
 	can_Shoot = false
 
 func _can_Shoot():
@@ -102,22 +133,28 @@ func _on_Hurtbox_area_entered(area):
 		area.get_parent().queue_free()
 	if name == "HITBOX_BONUS" :
 		area.get_parent().Go_to_player = true
-	if name == "HITBOX_BULLET" || name == "HURTBOX_ENEMY":
-		AudioManager.play("Player Miss")
-		var death_bomb = BOMB.instance()
-		death_bomb.position = position
-		death_bomb.modulate.r = 0
-		get_parent().add_child(death_bomb)
-		bomb_damage = 10000
-		_bomb()
-		bomb_damage = 80
-		LIVES -= 1
+	if name == "HITBOX_BULLET" && area.get_parent().Player_bullet == false : 
+		_die()
+	if name == "HURTBOX_ENEMY":
+		_die()
+
+func _die():
+	AudioManager.play("Player Miss")
+	var death_bomb = BOMB.instance()
+	death_bomb.position = position
+	death_bomb.modulate.r = 0
+	get_parent().add_child(death_bomb)
+	bomb_damage = 10000
+	_bomb()
+	bomb_damage = 80
+	LIVES -= 1
+	
 	
 func _manage_catch(var bonus):
 	var type = bonus.TYPE
 	match type:
 		"POWER":
-			if POWER < 3.95 : 
+			if POWER < 4 : 
 				POWER += 0.05
 		"BOMB":
 			BOMBS += 1
