@@ -1,9 +1,12 @@
 extends Node2D
 
 onready var Player = preload("res://Assets/Scenes/Player.tscn")
-onready var Wave = [preload("res://Assets/Scenes/Levels/wave_1.tscn"),
+onready var Wave = 	[
+					preload("res://Assets/Scenes/Levels/wave_1.tscn"),
 					preload("res://Assets/Scenes/Levels/wave_2.tscn"),
-					preload("res://Assets/Scenes/Levels/big_enemy_1.tscn")]
+					preload("res://Assets/Scenes/Levels/big_enemy_1.tscn"),
+					preload("res://Assets/Scenes/Levels/Boss.tscn")
+					]
 var wave_timer = Timer.new()
 var wave
 var wave_duration

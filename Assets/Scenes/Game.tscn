@@ -49,7 +49,7 @@ position = Vector2( 66, -24 )
 position = Vector2( 187, -90 )
 
 [node name="Spawn nubes3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 330, -24 )
+position = Vector2( 301, -26 )
 
 [node name="Spawn nubes6" parent="." instance=ExtResource( 2 )]
 position = Vector2( 665, -86 )

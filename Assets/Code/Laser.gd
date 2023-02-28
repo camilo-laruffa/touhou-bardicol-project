@@ -7,6 +7,5 @@ func _ready():
 
 func _process(delta):
 	time += delta
-	print(modulate.a)
 	modulate.a = sin(time * 4)
 	pass

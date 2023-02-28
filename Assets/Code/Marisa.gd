@@ -10,7 +10,7 @@ var LIVES = 3
 var SCORE = 0
 var velocity = Vector2()
 var speed
-const CD = 0.15
+const CD = 0.05
 var can_Shoot = true
 var Visible = false
 var timer = Timer.new() #Este timer es el del disparo
@@ -70,7 +70,7 @@ func _manage_input(delta):
 func _shoot():
 	#Los valores de las balas del jugador no son customizables sin cambiar el codigo
 	var Bullets = {}
-	var power = int(floor(POWER))
+	var power = int(round(POWER))
 	var shooting_points = {}
 	match power:
 		1:
@@ -95,7 +95,6 @@ func _shoot():
 		Bullets[index].init(true,3,Vector2(shooting_points[index],-10),100,1)
 		get_parent().add_child(Bullets[index])
 		Bullets[index].global_position = Vector2(get_node("Sprite").global_position.x, get_node("Sprite").global_position.y - 40)
-		Bullets[index].damage = 3
 		Bullets[index].z_index -= 1
 		if shooting_points[index] != 0 :
 			var angle = 1.5708 - atan(10/abs(shooting_points[index])) 
@@ -154,7 +153,7 @@ func _manage_catch(var bonus):
 	var type = bonus.TYPE
 	match type:
 		"POWER":
-			if POWER < 4 : 
+			if POWER < 3.95 : 
 				POWER += 0.05
 		"BOMB":
 			BOMBS += 1

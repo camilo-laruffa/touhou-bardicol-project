@@ -21,6 +21,7 @@ export(int,-1,1) var direccion_horizontal: int = 1 # Direccion horizontal del mo
 export(int,-1,1) var direccion_vertical: int = 0 # Direccion vertical del movimiento(-1 arriba ,0, 1 abajo)
 onready var BULLET = preload("res://Assets/Scenes/Prefabs/Bullet.tscn") # Precarga la bala
 onready var BONUS = preload("res://Assets/Scenes/Prefabs/Bonus.tscn") # Precarga el bonus
+onready var EXPLOSION = preload("res://Assets/Scenes/Prefabs/Explosion.tscn") 
 # Estas variables son para no alterar los valores iniciales de las mismas
 var bullet 
 var lives
@@ -63,9 +64,10 @@ func _movement():
 		
 func _on_HurtBox_area_entered(hitbox):
 	if hitbox.name == "Hitbox_Bullet" && hitbox.get_parent().Player_bullet :
-		_recieve_damage(get_tree().get_nodes_in_group("player")[0].POWER)
+		_recieve_damage(hitbox.get_parent().damage)
 
 func _recieve_damage(damage):
+	print(damage)
 	hp -= damage
 	if (hp <= 0): 
 		lives -= 1
@@ -79,7 +81,11 @@ func _die():
 	if get_tree().get_nodes_in_group("player")[0].POWER >= 3.95 && DROP_TYPE == "POWER" :
 		bonus.init("POINT",1000,false)
 	bonus.position = position
-	get_parent().call_deferred("add_child", bonus)
+	var explosion = EXPLOSION.instance()
+	explosion.get_node("Particles2D").emitting = true
+	explosion.position = position
+	get_parent().get_parent().call_deferred("add_child", bonus)
+	get_parent().get_parent().call_deferred("add_child", explosion)
 	queue_free() 
 
 func _shoot(var type: String):

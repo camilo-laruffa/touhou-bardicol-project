@@ -49,6 +49,7 @@ volume_db = -33.178
 mix_target = 2
 
 [node name="Laser1" type="Node2D" parent="."]
+visible = false
 position = Vector2( 40, 14 )
 z_index = -1
 
@@ -64,6 +65,7 @@ texture = ExtResource( 8 )
 script = ExtResource( 9 )
 
 [node name="Laser2" type="Node2D" parent="."]
+visible = false
 position = Vector2( -40, 14 )
 z_index = -1
 

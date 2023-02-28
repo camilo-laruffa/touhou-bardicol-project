@@ -31,9 +31,9 @@ func _ready():
 		look_at(get_tree().get_nodes_in_group("player")[0].global_position)
 		rotation -= PI/2
 	else: 
-		damage = get_tree().get_nodes_in_group("player")[0].POWER
-		speed = 80
-		scale = Vector2(1.3, 1.3)
+		damage = get_tree().get_nodes_in_group("player")[0].POWER * 0.5
+		speed = 150
+		scale = Vector2(1.2, 1.2)
 	SPRITE.frame = Frame
 	add_child(timer)
 	timer.set_wait_time(Bullet_duration)
@@ -50,9 +50,9 @@ func _destruir():
 	queue_free()
 	
 func _chequear_despawn():	
-	if position.x > 900 || position.x < -100:
+	if position.x > 900 || position.x < -400:
 		queue_free()
-	if position.y > 720 || position.y < 0:
+	if position.y > 720 || position.y < -400:
 		queue_free()
 
 func _on_Hitbox_area_entered(area):

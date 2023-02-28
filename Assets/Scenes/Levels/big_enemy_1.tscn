@@ -5,7 +5,7 @@
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
-duration = 1.0
+duration = 5.0
 
 [node name="Big_Enemy" parent="." instance=ExtResource( 1 )]
 position = Vector2( 430, -38 )
